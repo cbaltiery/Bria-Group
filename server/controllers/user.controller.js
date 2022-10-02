@@ -1,27 +1,54 @@
 const router = require("express").Router();
 const User = require("../models/user.model");
+const bcrypt = require("bcrypt");
+const jwt = require ("jsonwebtoken");
 
 router.post("/createuser", async (req,res)=>{
     const user = new User(
         {userName : req.body.user.userName,
          displayName : req.body.user.displayName,
          email : req.body.user.email,
-         password : req.body.user.password
+         password : bcrypt.hashSync (req.body.user.password, 10)
 });
     try {
         const newUser = await user.save();
-        res.json({user : newUser});
+        let token = jwt.sign({id: newUser._id}, process.env.JWT, {expiresIn: 60*60*24})
+        res.json({user : newUser, token : token});
     } catch (error) {
         res.json({message: error.message})
     }
 })
 
+router.post("/login", async (req, res) => {
+    console.log(req.body.user.email)
+    try{
+    const user =  await User.findOne({email : req.body.user.email})
+    if (user){
+        const passwordsMatch = await bcrypt.compare(
+            req.body.user.password,
+            user.password
+          );
+          console.log(passwordsMatch);
+          if (passwordsMatch) {
+            let token = jwt.sign({id: user._id}, process.env.JWT, {expiresIn: 60*60*24})
+            res.json({ message: "user found", user: user, token : token });
+          } else {
+            res.json({ message: "password mismatch" });
+          }
+        } else {
+          res.json({ message: "user not found", user: user });
+        }
+      } catch (error) {
+        res.json({ message: error.message });
+      }
+    });
+
 router.patch("/update/:id", async (req, res) => {
     console.log(req.params)
     try {
         const user = await User.findById(req.params.id)
-        user.firstName= req.body.user.firstName;
-        user.lastName= req.body.user.lastName;
+        user.userName= req.body.user.userName;
+        user.displayName= req.body.user.displayName;
         user.email= req.body.user.email;
         user.password= req.body.user.password;
         user.save();
