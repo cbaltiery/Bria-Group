@@ -1,11 +1,13 @@
 const router = require("express").Router();
 const Roundtable = require("../models/roundTable.model");
+const bcrypt = require("bcrypt");
+const jwt = require ("jsonwebtoken");
 
 router.post("/createroundtable", async (req,res)=>{
     const roundtable = new Roundtable(
         {groupName : req.body.roundtable.groupName,
          nickName : req.body.roundtable.nickName,
-         password : req.body.roundtable.password,
+         password : bcrypt.hashSync (req.body.roundtable.password, 10),
          city : req.body.roundtable.city,
          state : req.body.roundtable.state,
          gardenList : req.body.roundtable.gardenList,
@@ -13,11 +15,36 @@ router.post("/createroundtable", async (req,res)=>{
 });
     try {
         const newRoundtable = await roundtable.save();
-        res.json({roundtable : newRoundtable});
+        let token = jwt.sign({id: newRoundtable._id}, process.env.JWT, {expiresIn: 60*60*24})
+        res.json({roundtable : newRoundtable, token : token});
     } catch (error) {
         res.json({message:error.message})
     }
 })
+
+router.post("/login", async (req, res) => {
+    console.log(req.body.roundtable.groupName)
+    try{
+    const roundtable =  await Roundtable.findOne({groupName : req.body.roundtable.groupName})
+    if (roundtable){
+        const passwordsMatch = await bcrypt.compare(
+            req.body.roundtable.password,
+            roundtable.password
+          );
+          console.log(passwordsMatch);
+          if (passwordsMatch) {
+            let token = jwt.sign({id: roundtable._id}, process.env.JWT, {expiresIn: 60*60*24})
+            res.json({ message: "roundtable found", roundtable: roundtable, token : token });
+          } else {
+            res.json({ message: "password mismatch" });
+          }
+        } else {
+          res.json({ message: "roundtable not found", roundtable: roundtable });
+        }
+      } catch (error) {
+        res.json({ message: error.message });
+      }
+    });
 
 router.patch("/update/:id", async (req, res) => {
     console.log(req.params)
@@ -27,6 +54,9 @@ router.patch("/update/:id", async (req, res) => {
         roundtable.state= req.body.roundtable.state;
         roundtable.groupName= req.body.roundtable.groupName;
         roundtable.password= req.body.roundtable.password;
+        roundtable.nickName= req.body.roundtable.nickName;
+        roundtable.gardenList= req.body.roundtable.gardenList;
+        roundtable.mission= req.body.roundtable.mission;
         roundtable.save();
         res.json({message: "Roundtable updated", roundtable : roundtable});
     } catch (error) {

@@ -22,7 +22,7 @@ const RoundTableSchema = new mongoose.Schema({
         required: true,
     },
         gardenList: {
-        type: String,
+        type: Array,
         required: true,
     },
         mission: {
