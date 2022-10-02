@@ -4,9 +4,12 @@ const Roundtable = require("../models/roundTable.model");
 router.post("/createroundtable", async (req,res)=>{
     const roundtable = new Roundtable(
         {groupName : req.body.roundtable.groupName,
+         nickName : req.body.roundtable.nickName,
          password : req.body.roundtable.password,
          city : req.body.roundtable.city,
-         state : req.body.roundtable.state
+         state : req.body.roundtable.state,
+         gardenList : req.body.roundtable.gardenList,
+         mission: req.body.roundtable.mission
 });
     try {
         const newRoundtable = await roundtable.save();
