@@ -3,10 +3,14 @@ const Garden = require("../models/garden.model")
 
 router.post("/creategarden", async (req,res)=>{
     const gardenUser = new Garden(
-        {email : req.body.garden.email,
+        {gardenName : req.body.garden.gardenName,
+         gardenNickname : req.body.garden.gardenNickname,
+         roundtable : req.body.garden.roundtable,
+         sqFootage : req.body.garden.sqFootage,
          password : req.body.garden.password,
          city : req.body.garden.city,
-         state : req.body.garden.state
+         state : req.body.garden.state,
+         memberNames : req.body.garden.memberNames,
 });
     try {
         const newGarden = await gardenUser.save();

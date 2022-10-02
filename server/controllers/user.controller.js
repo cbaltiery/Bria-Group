@@ -3,8 +3,8 @@ const User = require("../models/user.model");
 
 router.post("/createuser", async (req,res)=>{
     const user = new User(
-        {firstName : req.body.user.firstName,
-         lastName : req.body.user.lastName,
+        {userName : req.body.user.userName,
+         displayName : req.body.user.displayName,
          email : req.body.user.email,
          password : req.body.user.password
 });

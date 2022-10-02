@@ -6,16 +6,26 @@ const RoundTableSchema = new mongoose.Schema({
         required: true,
         unique : true,
     },
-       password: {
+        nickName: {
+        type: String,    
+    },
+        password: {
         type: String,
-        required: true,
-       
+        required: true,     
     },
         city: {
         type: String,
         required: true,
     },
         state: {
+        type: String,
+        required: true,
+    },
+        gardenList: {
+        type: String,
+        required: true,
+    },
+        mission: {
         type: String,
         required: true,
     },

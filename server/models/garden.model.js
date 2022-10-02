@@ -1,14 +1,16 @@
 const mongoose = require("mongoose");
 const GardenSchema = new mongoose.Schema({
-       email: {
+        gardenName: {
         type: String,
         required: true,
         unique : true,
     },
-       password: {
+        gardenNickname: {
         type: String,
-        required: true,
-       
+    },
+        password: {
+        type: String,
+        required: true,      
     },
         city: {
         type: String,
@@ -18,6 +20,18 @@ const GardenSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+        roundtable: {
+        type: Boolean | String,       
+    },
+        sqFootage: {
+        type: Number, 
+        required: true,      
+    },
+        memberNames: {
+        type: String,
+        required: true,      
+    },
+
     });
 
 
