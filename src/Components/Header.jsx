@@ -6,6 +6,9 @@ import ModelPage from "./ModelPage";
 
 
 const Header = (props) => {
+    let activeStyle = {color: "red"}
+    let inActiveStyle = {textDecoration: "none"}
+    
     return ( <>
     <h4>BOTANICAL RESEARCH INSTIITUTES OF AMERICA.</h4>
     <h2>bria</h2>
