@@ -33,15 +33,15 @@ router.post("/login", async (req, res) => {
           console.log(passwordsMatch);
           if (passwordsMatch) {
             let token = jwt.sign({id: user._id}, process.env.JWT, {expiresIn: 60*60*24})
-            res.json({ message: "user found", user: user, token : token });
+            res.status(302).json({ message: "user found", user: user, token : token });
           } else {
-            res.json({ message: "password mismatch" });
+            res.status(401).json({ message: "password mismatch" });
           }
         } else {
-          res.json({ message: "user not found", user: user });
+          res.status(404).json({ message: "user not found", user: user });
         }
       } catch (error) {
-        res.json({ message: error.message });
+        res.status(503).json({ message: error.message });
       }
     });
 

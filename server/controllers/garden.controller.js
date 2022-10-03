@@ -37,15 +37,15 @@ router.post("/login", async (req, res) => {
           console.log(passwordsMatch);
           if (passwordsMatch) {
             let token = jwt.sign({id: garden._id}, process.env.JWT, {expiresIn: 60*60*24})
-            res.json({ message: "garden found", garden: garden, token : token });
+            res.status(302).json({ message: "garden found", garden: garden, token : token });
           } else {
-            res.json({ message: "password mismatch" });
+            res.status(401).json({ message: "password mismatch" });
           }
         } else {
-          res.json({ message: "garden not found", garden: garden });
+          res.status(404).json({ message: "garden not found", garden: garden });
         }
       } catch (error) {
-        res.json({ message: error.message });
+        res.status(503).json({ message: error.message });
       }
     });
 
