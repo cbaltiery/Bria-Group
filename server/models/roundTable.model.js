@@ -29,6 +29,9 @@ const RoundTableSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+        public: {
+        type: Boolean,       
+    },
     });
 
 

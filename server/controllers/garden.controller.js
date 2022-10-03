@@ -2,6 +2,7 @@ const router = require("express").Router()
 const Garden = require("../models/garden.model")
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
+const validateSessions = require("../middleware/validate-sessions")
 
 router.post("/creategarden", async (req,res)=>{
     const gardenUser = new Garden(
@@ -13,6 +14,7 @@ router.post("/creategarden", async (req,res)=>{
          city : req.body.garden.city,
          state : req.body.garden.state,
          memberNames : req.body.garden.memberNames,
+         public: req.body.garden.public
 });
     try {
         const newGarden = await gardenUser.save();
@@ -47,7 +49,7 @@ router.post("/login", async (req, res) => {
       }
     });
 
-router.patch("/update/:id", async (req, res) => {
+router.patch("/update/:id", validateSessions, async (req, res) => {
     console.log(req.params)
     try {
         const garden = await Garden.findById(req.params.id)
@@ -59,6 +61,7 @@ router.patch("/update/:id", async (req, res) => {
         garden.sqFootage= req.body.garden.sqFootage;
         garden.memberNames= req.body.garden.memberNames;
         garden.password= req.body.garden.password;
+        garden.public= req.body.garden.public;
         garden.save();
         res.json({message: "Garden updated", garden : garden});
     } catch (error) {
@@ -67,7 +70,7 @@ router.patch("/update/:id", async (req, res) => {
     
 })
 
-router.get("/getgardens", async (req,res)=>{
+router.get("/getgardens", validateSessions, async (req,res)=>{
     try {
         const garden = await Garden.find()
         res.json({garden : garden})
@@ -76,7 +79,7 @@ router.get("/getgardens", async (req,res)=>{
     }
 })
 
-router.get("/getgardenby/:id", async (req,res)=>{
+router.get("/getgardenby/:id", validateSessions, async (req,res)=>{
     try {
         const garden = await Garden.findById(req.params.id)
         res.json({ message: "Garden found", garden : garden })
@@ -93,7 +96,7 @@ router.get("/getgardenby/:id", async (req,res)=>{
 //     }
 // })
 
-router.delete("/deletegarden/:id", async (req,res)=>{
+router.delete("/deletegarden/:id", validateSessions, async (req,res)=>{
     try{
         const deleteGarden = await Garden.deleteOne({_id: req.params.id, ownerId: req.user_id,})
         res.json({message: deleteGarden.deletedCount > 0 ? "Garden removed" : "Garden not found", deleteGarden :deleteGarden})
