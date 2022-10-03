@@ -2,13 +2,15 @@ const router = require("express").Router();
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
+const validateSessions = require("../middleware/validate-sessions")
 
 router.post("/createuser", async (req,res)=>{
     const user = new User(
         {userName : req.body.user.userName,
          displayName : req.body.user.displayName,
          email : req.body.user.email,
-         password : bcrypt.hashSync (req.body.user.password, 10)
+         password : bcrypt.hashSync (req.body.user.password, 10),
+         public: req.body.user.public
 });
     try {
         const newUser = await user.save();
@@ -43,7 +45,7 @@ router.post("/login", async (req, res) => {
       }
     });
 
-router.patch("/update/:id", async (req, res) => {
+router.patch("/update/:id", validateSessions, async (req, res) => {
     console.log(req.params)
     try {
         const user = await User.findById(req.params.id)
@@ -51,6 +53,7 @@ router.patch("/update/:id", async (req, res) => {
         user.displayName= req.body.user.displayName;
         user.email= req.body.user.email;
         user.password= req.body.user.password;
+        user.public= req.body.user.public;
         user.save();
         res.json({message: "User info updated", user : user});
     } catch (error) {
@@ -59,7 +62,7 @@ router.patch("/update/:id", async (req, res) => {
     
 })
 
-router.get("/getusers", async (req,res)=>{
+router.get("/getusers", validateSessions, async (req,res)=>{
     try {
         const user = await User.find()
         res.json({user : user})
@@ -68,7 +71,7 @@ router.get("/getusers", async (req,res)=>{
     }
 })
 
-router.get("/getuserby/:id", async (req,res)=>{
+router.get("/getuserby/:id", validateSessions, async (req,res)=>{
     try {
        const user = await User.findById(req.params.id)
        res.json({ message: "User found", user : user })
@@ -85,7 +88,7 @@ router.get("/getuserby/:id", async (req,res)=>{
 //     }
 // })
 
-router.delete("/deleteuser/:id", async (req,res)=>{
+router.delete("/deleteuser/:id", validateSessions, async (req,res)=>{
     try{
         const deleteUser = await User.deleteOne({_id: req.params.id, ownerId: req.user_id,})
         res.json({message: deleteUser.deletedCount > 0 ? "User removed" : "User not found", deleteUser :deleteUser})

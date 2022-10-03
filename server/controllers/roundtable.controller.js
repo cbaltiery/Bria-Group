@@ -2,6 +2,7 @@ const router = require("express").Router();
 const Roundtable = require("../models/roundTable.model");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
+const validateSessions = require("../middleware/validate-sessions")
 
 router.post("/createroundtable", async (req,res)=>{
     const roundtable = new Roundtable(
@@ -11,7 +12,8 @@ router.post("/createroundtable", async (req,res)=>{
          city : req.body.roundtable.city,
          state : req.body.roundtable.state,
          gardenList : req.body.roundtable.gardenList,
-         mission: req.body.roundtable.mission
+         mission: req.body.roundtable.mission,
+         public: req.body.rountable.public
 });
     try {
         const newRoundtable = await roundtable.save();
@@ -46,7 +48,7 @@ router.post("/login", async (req, res) => {
       }
     });
 
-router.patch("/update/:id", async (req, res) => {
+router.patch("/update/:id", validateSessions, async (req, res) => {
     console.log(req.params)
     try {
         const roundtable = await Roundtable.findById(req.params.id)
@@ -57,6 +59,7 @@ router.patch("/update/:id", async (req, res) => {
         roundtable.nickName= req.body.roundtable.nickName;
         roundtable.gardenList= req.body.roundtable.gardenList;
         roundtable.mission= req.body.roundtable.mission;
+        roundtable.public= req.body.roundtable.public;
         roundtable.save();
         res.json({message: "Roundtable updated", roundtable : roundtable});
     } catch (error) {
@@ -65,7 +68,7 @@ router.patch("/update/:id", async (req, res) => {
     
 })
 
-router.get("/getroundtables", async (req,res)=>{
+router.get("/getroundtables", validateSessions, async (req,res)=>{
     try {
         const roundtable = await Roundtable.find()
         res.json({roundtable : roundtable})
@@ -74,7 +77,7 @@ router.get("/getroundtables", async (req,res)=>{
     }
 })
 
-router.get("/getroundtableby/:id", async (req,res)=>{
+router.get("/getroundtableby/:id", validateSessions, async (req,res)=>{
     try {
         const roundtable = await Roundtable.findById(req.params.id)
         res.json({ message: "Roundtable found", roundtable : roundtable })
@@ -91,7 +94,7 @@ router.get("/getroundtableby/:id", async (req,res)=>{
 //     }
 // })
 
-router.delete("/deleteroundtable/:id", async (req,res)=>{
+router.delete("/deleteroundtable/:id", validateSessions, async (req,res)=>{
     try{
         const deleteRoundtable = await Roundtable.deleteOne({_id: req.params.id, ownerId: req.user_id,})
         res.json({message: deleteRoundtable.deletedCount > 0 ? "Roundtable removed" : "Roundtable not found", deleteRoundtable :deleteRoundtable})
