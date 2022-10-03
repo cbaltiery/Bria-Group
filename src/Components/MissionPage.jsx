@@ -3,7 +3,6 @@ import Header from "./Header";
 
 const MissionPage = (props) => {
     return ( <>
-    Hello from Mission page
     <Header/>
     <h3>We are in the midst of the sixth largest mass extinction on earth.</h3>
     {/* Image of NYC city scape */}
