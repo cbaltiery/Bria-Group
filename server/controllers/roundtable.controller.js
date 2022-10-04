@@ -24,29 +24,29 @@ router.post("/createroundtable", async (req,res)=>{
     }
 })
 
-router.post("/login", async (req, res) => {
-    console.log(req.body.roundtable.groupName)
-    try{
-    const roundtable =  await Roundtable.findOne({groupName : req.body.roundtable.groupName})
-    if (roundtable){
-        const passwordsMatch = await bcrypt.compare(
-            req.body.roundtable.password,
-            roundtable.password
-          );
-          console.log(passwordsMatch);
-          if (passwordsMatch) {
-            let token = jwt.sign({id: roundtable._id}, process.env.JWT, {expiresIn: 60*60*24})
-            res.status(302).json({ message: "roundtable found", roundtable: roundtable, token : token });
-          } else {
-            res.status(401).json({ message: "password mismatch" });
-          }
-        } else {
-          res.status(404).json({ message: "roundtable not found", roundtable: roundtable });
-        }
-      } catch (error) {
-        res.status(503).json({ message: error.message });
-      }
-    });
+// router.post("/login", async (req, res) => {
+//     console.log(req.body.roundtable.groupName)
+//     try{
+//     const roundtable =  await Roundtable.findOne({groupName : req.body.roundtable.groupName})
+//     if (roundtable){
+//         const passwordsMatch = await bcrypt.compare(
+//             req.body.roundtable.password,
+//             roundtable.password
+//           );
+//           console.log(passwordsMatch);
+//           if (passwordsMatch) {
+//             let token = jwt.sign({id: roundtable._id}, process.env.JWT, {expiresIn: 60*60*24})
+//             res.status(302).json({ message: "roundtable found", roundtable: roundtable, token : token });
+//           } else {
+//             res.status(401).json({ message: "password mismatch" });
+//           }
+//         } else {
+//           res.status(404).json({ message: "roundtable not found", roundtable: roundtable });
+//         }
+//       } catch (error) {
+//         res.status(503).json({ message: error.message });
+//       }
+//     });
 
 router.patch("/update/:id", validateSessions, async (req, res) => {
     console.log(req.params)
