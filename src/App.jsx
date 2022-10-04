@@ -9,8 +9,10 @@ import RegisterGarden from './components/RegisterGarden';
 function App() {
   return (
   <>
+  <Header/>
   <h1> Hello from App.jsx</h1>
   <RegisterGarden/>
+  <Footer/>
   </>
   );
 }
