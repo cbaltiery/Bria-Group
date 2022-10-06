@@ -1,20 +1,18 @@
 import './App.css';
-import MemberGarden from './Components/MemberGarden';
-import Header from './Components/Header'
-import Footer from './Components/Footer'
-import RegisterGarden from './Components/RegisterGarden';
-import RegisterRoundtable from './Components/RegisterRoundtable';
+import MemberGarden from './components/MemberGarden';
+import Header from './components/Header'
+import Footer from './components/Footer'
+import RegisterGarden from './components/RegisterGarden';
+import RegisterRoundtable from './components/RegisterRoundtable';
+import MissionPage from './components/MissionPage';
+import Home from './components/Home';
 
 
 
 function App() {
   return (
   <>
-  <Header />
-  <h1> Hello from App.jsx</h1>
-  <RegisterGarden/>
-  <RegisterRoundtable />
-  <Footer />
+  <Home />
   </>
   );
 }

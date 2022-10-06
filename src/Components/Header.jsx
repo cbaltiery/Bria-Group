@@ -4,7 +4,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import MemberGarden from "./MemberGarden";
 import MissionPage from "./MissionPage";
 import ModelPage from "./ModelPage";
-import MemberGarden from "./MemberGarden";
+
 
 
 const Header = (props) => {
@@ -12,12 +12,12 @@ const Header = (props) => {
     let inActiveStyle = {textDecoration: "none"}
     
     return ( <>
-    <h4>BOTANICAL RESEARCH INSTIITUTES OF AMERICA.</h4>
+    <h4 style={{'backgroundColor' : 'grey', 'color' : 'white'}}>BOTANICAL RESEARCH INSTITUTES OF AMERICA.</h4>
     <h2>bria</h2>
-    <input type="text" placeholder="Email*" /><button>Join BRIA</button>
+    <input type="text" placeholder="Email*" /><button >Join BRIA</button>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">bria</a>
+  {/* <a class="navbar-brand" href="#">bria</a> */}
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
