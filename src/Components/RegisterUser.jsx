@@ -5,17 +5,19 @@ import { Endpoints } from "./Endpoints";
 const RegisterUser = (props) => {
 
     function Signup(props) {
-        const [username, setUsername] = useState("");
-        const [displayName, setDisplayname] = useState("")
-        const [email, setEmail] = useState("")
-        const [password, setPassword] = useState("");
+        const [userName, setUsername] = useState();
+        const [displayName, setDisplayname] = useState()
+        const [email, setEmail] = useState()
+        const [password, setPassword] = useState();
       
         async function handleSubmit(e) {
           e.preventDefault();
           console.log("signup clicked");
       
           let bodyObject = JSON.stringify({
-            username: username,
+            username: userName,
+            email:email,
+            displayname: displayName,
             password: password,
           });
       
