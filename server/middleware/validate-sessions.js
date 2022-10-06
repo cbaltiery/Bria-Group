@@ -14,7 +14,7 @@ const validateSessions = async (req,res,next) => {
     
 
     if (user) {
-        request.user = user;
+        req.user = user;
         return next();
     }
     } catch (error) {
