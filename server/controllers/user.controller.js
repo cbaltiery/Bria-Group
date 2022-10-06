@@ -14,7 +14,7 @@ router.post("/createuser", async (req,res)=>{
 });
     try {
         const newUser = await user.save();
-        let token = jwt.sign({id: newUser._id}, process.env.JWT, {expiresIn: 60*60*24})
+        let token = jwt.sign({id: newUser._id}, process.env.JWT_KEY, {expiresIn: 60*60*24})
         res.json({user : newUser, token : token});
     } catch (error) {
         res.json({message: error.message})
@@ -32,7 +32,7 @@ router.post("/login", async (req, res) => {
           );
           console.log(passwordsMatch);
           if (passwordsMatch) {
-            let token = jwt.sign({id: user._id}, process.env.JWT, {expiresIn: 60*60*24})
+            let token = jwt.sign({id: user._id}, process.env.JWT_KEY, {expiresIn: 60*60*24})
             res.status(302).json({ message: "user found", user: user, token : token });
           } else {
             res.status(401).json({ message: "password mismatch" });
