@@ -3,8 +3,8 @@ import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Endpoints } from "./Endpoints";
 
 function Login(props) {
-  const [username, setUsername] = useState("username3");
-  const [password, setPassword] = useState("password3");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
