@@ -6,6 +6,8 @@ import RegisterGarden from './components/RegisterGarden';
 import RegisterRoundtable from './components/RegisterRoundtable';
 import MissionPage from './components/MissionPage';
 import Home from './components/Home';
+import DisplayGarden from './components/DisplayGarden';
+
 
 
 

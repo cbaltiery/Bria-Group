@@ -8,10 +8,6 @@ const GardenSchema = new mongoose.Schema({
         gardenNickname: {
         type: String,
     },
-        password: {
-        type: String,
-        required: true,      
-    },
         city: {
         type: String,
         required: true,
@@ -23,9 +19,9 @@ const GardenSchema = new mongoose.Schema({
         roundtable: {
         type: Boolean | String,       
     },
-        sqFootage: {
+        squareFootage: {
         type: Number, 
-        required: true,      
+        // required: true,      
     },
         memberNames: {
         type: Array,
