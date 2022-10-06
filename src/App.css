@@ -1,0 +1,74 @@
+.header{
+    height: 8em;
+    background-color: grey;
+}
+.left-header{
+    width: 50%;
+    float: left;
+}
+
+.right-header{
+    width: 50%;
+    float: right;
+    margin-bottom: 2em;
+    
+}
+
+.navbar{
+    float: right;
+}
+
+.top{
+    flex: 80%;
+    padding : 200px;
+    background-color: burlywood;
+ /* background-image: url('./components/images/nyc.jpeg'); */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#box1{
+    height: 10em;
+    width: 20em;
+    padding: 15em;
+    border: 2px solid black;
+    background-color: green;
+    text-align: center;
+    display: inline-block;
+    margin-top: 2em;
+}
+
+#box2{
+    height: 10em;
+    width: 20em;
+    padding: 15em;
+    border: 2px solid black;
+    background-color: olivedrab;
+    text-align: center;
+    display: inline-block;
+    margin-top: 2em;
+    
+}
+.box1{
+    background-color: rgb(66, 65, 65);
+    width: 50%;
+    height:35em;
+    float: left;
+    text-align: center;
+}
+.box2{
+    background-color: rgb(66, 65, 65);
+    width:50%;
+    height:35em;
+    float:right;
+    text-align: center;
+}
+.bottom{
+    flex: 80%;
+    padding : 200px;
+    background-color: rgba(248, 245, 227, 0.973);
+ /* background-image: url('./components/images/nyc.jpeg'); */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
