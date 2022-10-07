@@ -3,8 +3,21 @@ import { Container, Nav, Navbar, NavDropdown, Button, Form, InputGroup } from "r
 
 
 const Headers = (props) => {
-    let activeStyle = {color: "green"}
-    let inActiveStyle = {textDecoration: "none"}
+    // let activeStyle = {color: "green"}
+    // let inActiveStyle = {textDecoration: "none"}
+
+//! Will have to edit this part below!
+    // async function handleClick(e){
+    //   e.preventDefault();
+    //   const userInput = document.getElementById("userinput")
+    //   const messageInput = document.getElementById("messageinput")
+    
+    //   let bodyObject = JSON.stringify({
+    //     emails: {
+    //       email:email,
+    //     }
+    //   })
+    // }
     return ( <>
     <div className="header">
     <div className="left-header">
@@ -49,7 +62,7 @@ const Headers = (props) => {
           aria-label="Email*"
           aria-describedby="basic-addon2"
         />
-        <Button variant="success" id="button-addon2" >
+        <Button variant="success" id="button-addon2">
           Join BRIA
         </Button>
       </InputGroup>
