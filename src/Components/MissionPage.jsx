@@ -1,10 +1,10 @@
-import Footer from "./Footer";
-import Header from "./Header";
+import Footers from "./Footers";
+import Headers from "./Headers";
 import './missionPage.css'
 
 const MissionPage = (props) => {
     return ( <>
-    <Header/>
+    <Headers/>
     <div className="row">
         <div className="top">
             <h3>We are in the midst of the sixth largest mass extinction on earth.</h3>
@@ -56,7 +56,7 @@ const MissionPage = (props) => {
         <h5>Join the BRIA community</h5>
         <p>Subscribe to start your journey with BRIA. It’s free, and you can unsubscribe at any time.</p>
         <input type="text" placeholder="Email*" /><button>Join BRIA</button>
-    <Footer/>
+    <Footers/>
     </> );
 }
  

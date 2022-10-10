@@ -30,26 +30,26 @@ const Headers = (props) => {
         <div className="navbar">
     <Navbar bg="success" size="lg">
       <Container>
-        <Navbar.Brand href="#home">bria</Navbar.Brand>
+        <Navbar.Brand href="/home">bria</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">mission</Nav.Link>
-            <Nav.Link href="#link">model</Nav.Link>
+            <Nav.Link href="/MissionPage">mission</Nav.Link>
+            <Nav.Link href="/ModelPage">model</Nav.Link>
             <NavDropdown title="member gardens" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">register a garden</NavDropdown.Item>
+              <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.2">
+              <NavDropdown.Item href="/RegisterRoundTable">
                 register a roundtable 
               </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">garden accredidations</NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+              {/* <NavDropdown.Item href="#action/3.3">garden accredidations</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 public garden page
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
-            <Nav.Link href="#link"><b>LOGIN</b></Nav.Link>
+            <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

@@ -1,5 +1,4 @@
-import { Container, Row, Col, FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
 import { useState } from "react";
 import { Endpoints } from "./endPoints";
 
@@ -45,19 +44,9 @@ const RegisterGarden = (props) => {
       error.error(error)
       
     }
-
   }
-
     return (
-/* Require dropdown menu to choose how the person is activating their garden.
-1)  Document Bloom Times to help track climate change "Use a free app to help track climate change by snapping photos in your garden"
-2)  Grow a endangered species "Increase the genetic diversity of your local native plant populations"
-3)  Design a beautiful garden "create strikingly beatutiful beds, show off your garden, or participate in design contests"
-4)  Go beyond "Native". "Learn which plant combinations can create micro ecosystems to support wildlife in your garden"
-5) Create native pollinator gardens "create pollinator gardens and nurseries"
-6) Have a garden consultation with a botanist "an online or in-person" chat with a botanist or ecologist can help you do more with your garden
-7) Install educational garden signage "create educational - and interactive garden signage"
-8) "What did we miss" [placeholder - would you like to give garden tours, or host a class? Learn botanical drawing? Tell us more about how you'd like to activate your botanical garden]
+/* 
 
 Should Contain:ve/
 Input fields for the following:
