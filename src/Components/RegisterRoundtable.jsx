@@ -1,15 +1,14 @@
 import { Container, Row, Col, FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const RegisterRoundtable = (props) => {
     const states = require("../assets/states.json")
+    
 
     async function handleSubmit(e){
         e.preventDefault();
         console.log("button Clicked")
     }
-
-
 
     return (
     <>
@@ -69,7 +68,9 @@ const RegisterRoundtable = (props) => {
             Upload a picture of your greenspace.
           </FormText>
         </FormGroup>
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button onClick={() => {
+          handleSubmit()
+        }}>Submit</Button>
     </Form>
     
     </> 
