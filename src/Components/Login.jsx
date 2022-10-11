@@ -1,13 +1,16 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Routes, Route, } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Endpoints } from '../Components/endPoints';
+import RegisterUser from "./RegisterUser";
 
 function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate()
-  
+  const navigateToRegisterUser = () => {
+    navigate('/RegisterUser')
+  };
   
   function refreshPage() {
     // Required to ensure that the page reloads with the local token, changes the appearence of the login button.
@@ -76,7 +79,13 @@ function Login(props) {
           />
         </FormGroup>
         <Button type="submit">Log In</Button>
-      </Form>
+        <h4>Not a member?</h4>
+        <button onClick={navigateToRegisterUser}>Sign Up!</button>
+        {/* <Routes>
+          <Route path="/RegisterUser" element={<RegisterUser/>}>
+          </Route>
+        </Routes> */}
+        </Form>
     </div>
   );
 }

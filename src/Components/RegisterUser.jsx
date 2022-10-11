@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { Endpoints } from "./Endpoints";
+import { Endpoints } from "./endPoints";
 
 const RegisterUser = (props) => {
 
-    function Signup(props) {
-        const [userName, setUsername] = useState();
-        const [displayName, setDisplayname] = useState()
-        const [email, setEmail] = useState()
-        const [password, setPassword] = useState();
+    
+        const [userName, setUsername] = useState("");
+        const [displayName, setDisplayname] = useState("")
+        const [email, setEmail] = useState("")
+        const [password, setPassword] = useState("");
       
         async function handleSubmit(e) {
           e.preventDefault();
           console.log("signup clicked");
       
           let bodyObject = JSON.stringify({
-            username: userName,
+            userName: userName,
             email:email,
-            displayname: displayName,
+            displayName: displayName,
             password: password,
           });
       
@@ -50,17 +50,17 @@ const RegisterUser = (props) => {
                     onChange={(e) => {
                         setUsername(e.target.value);
                     }}
-                    placeholder="username"
+                    placeholder="Username*"
                     name="username"
-                    value={username}
+                    value={userName}
                 />
             </FormGroup>
 
             <FormGroup>
-                <Label htmlFor="displayname">Displayname</Label>
+                <Label htmlFor="displayname">DisplayName</Label>
                 <Input
                     onChange={(e) => {
-                        setUsername(e.target.value);
+                        setDisplayname(e.target.value);
                     }}
                     placeholder="Display Name*"
                     name="displayname"
@@ -69,10 +69,10 @@ const RegisterUser = (props) => {
             </FormGroup>
 
             <FormGroup>
-                <Label htmlFor="email">email</Label>
+                <Label htmlFor="email">Email</Label>
                 <Input
                     onChange={(e) => {
-                        setUsername(e.target.value);
+                        setEmail(e.target.value);
                     }}
                     placeholder="Email*"
                     name="email"
@@ -81,10 +81,10 @@ const RegisterUser = (props) => {
             </FormGroup>
 
             <FormGroup>
-                <Label htmlFor="password">password</Label>
+                <Label htmlFor="password">Password</Label>
                 <Input
                     onChange={(e) => {
-                        setUsername(e.target.value);
+                        setPassword(e.target.value);
                     }}
                     placeholder="Password*"
                     name="password"
@@ -92,10 +92,10 @@ const RegisterUser = (props) => {
                 />
             </FormGroup>
 
+            <Button onClick={handleSubmit}>Submit</Button>
         </Form>
     </div>
     </> );
     }
-}
  
 export default RegisterUser
