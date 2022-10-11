@@ -5,7 +5,7 @@ const jwt = require ("jsonwebtoken");
 
 router.post("/joinmailinglist", async (req,res)=>{
     const email = new emailList(
-        {email : req.body.emails.email   
+        {email : req.body.email.email  
 });
     try {
         const newEmailList = await email.save();
