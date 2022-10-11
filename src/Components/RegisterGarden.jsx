@@ -1,6 +1,9 @@
 import { FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
 import { useState } from "react";
 import { Endpoints } from "./endPoints";
+import Headers from "./Header";
+import Footers from "./Footers";
+import '../App.css'
 
 const RegisterGarden = (props) => {
     const states = require("../assets/states.json")
@@ -46,6 +49,7 @@ const RegisterGarden = (props) => {
     }
   }
     return (
+    
 /* 
 
 Should Contain:ve/
@@ -62,6 +66,8 @@ Input fields for the following:
 An area to upload personal photos of the space. 
 */
     <>
+    <Headers />
+    <div className="register">
     <h1> Register your Garden </h1>
     <Form>
         <FormGroup>
@@ -155,7 +161,8 @@ An area to upload personal photos of the space.
 
         <Button onClick={handleSubmit}>Submit</Button>
     </Form>
-    
+    </div>
+    <Footers />
     </> 
     );
 }
