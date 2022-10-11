@@ -1,8 +1,46 @@
 import '../App.css'
+import { useEffect, useState, React } from "react";
 import { Container, Nav, Navbar, NavDropdown, Button, Form, InputGroup } from "react-bootstrap"
 
 
 const Headers = (props) => {
+
+  //  establish whether a token is accessed or not
+  const [sessionToken, setSessionToken] = useState("")
+  
+  useEffect(() => {
+    if (localStorage.getItem("token")){
+      setSessionToken(localStorage.getItem("token"))
+    }
+  }, []);
+
+  // Clears token when user logs out
+  const clearToken = () => {
+    localStorage.clear();
+    setSessionToken("");
+  };
+
+
+  const protectedViews = () => {
+    return localStorage.getItem("token") === sessionToken ?
+    <NavDropdown title="Member Profile" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#Account-Settings">Account Settings</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#Profile-Page">
+                Profile Page  
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item onClick={clearToken} href="#Log-Out">
+                LOGOUT  
+              </NavDropdown.Item>
+            </NavDropdown>
+     : 
+    <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
+  }
+
+
+
+
     // let activeStyle = {color: "green"}
     // let inActiveStyle = {textDecoration: "none"}
 
@@ -49,7 +87,7 @@ const Headers = (props) => {
                 public garden page
               </NavDropdown.Item> */}
             </NavDropdown>
-            <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
+            {protectedViews()}
           </Nav>
         </Navbar.Collapse>
       </Container>

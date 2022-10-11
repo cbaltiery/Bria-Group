@@ -11,8 +11,6 @@ const validateSessions = async (req,res,next) => {
 
     const user = await User.findById(decodedToken.id)
 
-    
-
     if (user) {
         req.user = user;
         return next();

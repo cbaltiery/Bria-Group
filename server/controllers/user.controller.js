@@ -1,16 +1,24 @@
+require ("dotenv").config()
 const router = require("express").Router();
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
 const validateSessions = require("../middleware/validate-sessions")
 
+function verifyUndefinedOrNull(item){
+    return item == undefined || item == null ? "" : item
+}
+function verifyUndefinedOrNullBoolean(item){
+    return item == undefined || item == null ? false : item
+}
+
 router.post("/createuser", async (req,res)=>{
     const user = new User(
-        {userName : req.body.user.userName,
-         displayName : req.body.user.displayName,
-         email : req.body.user.email,
-         password : bcrypt.hashSync (req.body.user.password, 10),
-         public: req.body.user.public
+        {userName : verifyUndefinedOrNull(req.body.user.userName),
+         displayName : verifyUndefinedOrNull(req.body.user.displayName),
+         email : verifyUndefinedOrNull(req.body.user.email),
+         password : verifyUndefinedOrNull(bcrypt.hashSync (req.body.user.password, 10)),
+         public: verifyUndefinedOrNullBoolean(req.body.user.public)
 });
     try {
         const newUser = await user.save();
@@ -22,12 +30,14 @@ router.post("/createuser", async (req,res)=>{
 })
 
 router.post("/login", async (req, res) => {
-    console.log(req.body.user.email)
+    console.log(req.body.email)
     try{
-    const user =  await User.findOne({email : req.body.user.email})
+
+    const user =  await User.findOne({email : req.body.email})
+    
     if (user){
         const passwordsMatch = await bcrypt.compare(
-            req.body.user.password,
+            req.body.password,
             user.password
           );
           console.log(passwordsMatch);
