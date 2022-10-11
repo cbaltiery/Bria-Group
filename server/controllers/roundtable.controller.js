@@ -1,3 +1,4 @@
+require ("dotenv").config()
 const router = require("express").Router();
 const Roundtable = require("../models/roundTable.model");
 const bcrypt = require("bcrypt");

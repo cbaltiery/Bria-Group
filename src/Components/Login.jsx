@@ -1,17 +1,30 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import { Endpoints } from '../Components/endPoints';
 
 function Login(props) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
+  
+  
+  function refreshPage() {
+    // Required to ensure that the page reloads with the local token, changes the appearence of the login button.
+    setTimeout(()=>{
+        window.location.reload(false);
+    }, 500);
+  }
 
   async function handleSubmit(e) {
     e.preventDefault();
     console.log("login clicked");
+    // Navigate can be used to automatically return to home page after successful login.
+    refreshPage()
+    navigate("/Home")
 
     let bodyObject = JSON.stringify({
-      username: username,
+      email: email,
       password: password,
     });
 
@@ -25,9 +38,10 @@ function Login(props) {
     };
 
     try {
-      const response = await fetch(Endpoints.user.login, requestOptions);
+      const response = await fetch(Endpoints.user.loginUser, requestOptions);
       const data = await response.json();
-      props.updateToken(data.token);
+      localStorage.setItem("token", data.token)
+      console.log(data) 
     } catch (error) {
       console.error(error);
     }
@@ -38,14 +52,14 @@ function Login(props) {
       <h1>Log In</h1>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
-          <Label htmlFor="username">Username</Label>
+          <Label htmlFor="Email">E-mail</Label>
           <Input
             onChange={(e) => {
-              setUsername(e.target.value);
+              setEmail(e.target.value);
             }}
-            placeholder="username"
-            name="username"
-            value={username}
+            placeholder="Email"
+            name="Email"
+            value={email}
           />
         </FormGroup>
 
