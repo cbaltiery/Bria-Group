@@ -4,7 +4,6 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import MemberGarden from "./MemberGarden";
 import MissionPage from "./MissionPage";
 import ModelPage from "./ModelPage";
-import MemberGarden from "./MemberGarden";
 
 
 const Header = (props) => {
