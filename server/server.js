@@ -9,6 +9,7 @@ const user = require("./controllers/user.controller")
 const garden = require("./controllers/garden.controller")
 const roundtable = require("./controllers/roundtable.controller")
 const api = require("./controllers/api.controller")
+const email = require("./controllers/emailList.controller")
 
 // ------- DB Connection -------\\
 const mongoose = require("mongoose")
@@ -21,6 +22,7 @@ server.use(Express.urlencoded())
 server.use(Express.json())
 
 // ------- Links -------\\
+server.use("/email",email)
 server.use("/user",user)
 server.use("/garden",garden)
 server.use("/roundtable",roundtable)

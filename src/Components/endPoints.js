@@ -8,5 +8,8 @@ export const Endpoints = {
     user:{
         createUser: `${DBURL}/user/createuser`,
         loginUser: `${DBURL}/user/login`
+    },
+    email:{
+        joinMailingList: `${DBURL}/email/joinmailinglist`
     }
 }
