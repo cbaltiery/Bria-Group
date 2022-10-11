@@ -1,9 +1,10 @@
 import '../App.css'
 import { useEffect, useState, React } from "react";
 import { Container, Nav, Navbar, NavDropdown, Button, Form, InputGroup } from "react-bootstrap"
+import { Endpoints } from './endPoints';
 
 
-const Headers = (props) => {
+const Header = (props) => {
 
   //  establish whether a token is accessed or not
   const [sessionToken, setSessionToken] = useState("")
@@ -20,7 +21,7 @@ const Headers = (props) => {
     setSessionToken("");
   };
 
-
+  // Toggled between Login and Member profile depending on the presence of a token.
   const protectedViews = () => {
     return localStorage.getItem("token") === sessionToken ?
     <NavDropdown title="Member Profile" id="basic-nav-dropdown">
@@ -38,24 +39,44 @@ const Headers = (props) => {
     <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
   }
 
-
-
-
     // let activeStyle = {color: "green"}
     // let inActiveStyle = {textDecoration: "none"}
 
-//! Will have to edit this part below!
-    // async function handleClick(e){
-    //   e.preventDefault();
-    //   const userInput = document.getElementById("userinput")
-    //   const messageInput = document.getElementById("messageinput")
-    
-    //   let bodyObject = JSON.stringify({
-    //     emails: {
-    //       email:email,
-    //     }
-    //   })
-    // }
+
+// ------------- Email Sign up -------------- \\
+
+
+const [email, setEmail] = useState ("")
+const emailinput = document.getElementById("email-input")
+
+    async function handleClick(e){
+      e.preventDefault();
+      emailinput.value = ("")
+
+      let bodyObject = JSON.stringify(
+        {
+          email:{
+            email:email,
+          }
+        })
+
+        let myHeaders = new Headers ();
+        myHeaders.append("Content-Type", "application/json")
+
+
+      const requestOptions = {
+        method: "POST",
+        headers: myHeaders,
+        body: bodyObject
+      }
+      try {
+        const response = await fetch (Endpoints.email.joinMailingList,requestOptions)
+        const data = await response.json()
+        console.log(data)
+      } catch (error) {
+        error.error(error)
+      }
+    }
     return ( <>
     <div className="header">
     <div className="left-header">
@@ -96,11 +117,13 @@ const Headers = (props) => {
     {/* <div className="join"> */}
     <InputGroup style={{'width' : '60%', 'float' : 'right'}} className="mb-3">
         <Form.Control
+          id = "email-input"
+          onChange={(e)=>setEmail(e.target.value)}
           placeholder="Email*"
           aria-label="Email*"
           aria-describedby="basic-addon2"
         />
-        <Button variant="success" id="button-addon2">
+        <Button variant="success" id="button-addon2" onClick={handleClick}>
           Join BRIA
         </Button>
       </InputGroup>
@@ -112,4 +135,4 @@ const Headers = (props) => {
     </> );
 }
  
-export default Headers;
+export default Header;

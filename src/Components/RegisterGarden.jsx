@@ -1,7 +1,7 @@
 import { FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
 import { useState } from "react";
 import { Endpoints } from "./endPoints";
-import Headers from "./Headers";
+import Headers from "./Header";
 import Footers from "./Footers";
 import '../App.css'
 

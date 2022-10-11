@@ -1,12 +1,12 @@
 import React from 'react';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
-import Headers from "./Headers";
+import Header from './Header';
 import Footers from "./Footers";
 import '../App.css'
 
 const Home = (props) => {
     return ( <>
-    <Headers />
+    <Header />
     <div className="top">
         <div id="upper-top">
     <h1>Join BRIA, and help save life on earth.</h1>
