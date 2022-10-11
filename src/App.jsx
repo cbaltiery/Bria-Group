@@ -6,6 +6,7 @@ import ModelPage from './Components/ModelPage';
 import Login from './Components/Login';
 import RegisterGarden from './Components/RegisterGarden';
 import RegisterRoundtable from './Components/RegisterRoundtable';
+import RegisterUser from './Components/RegisterUser';
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
         <Route path = "/RegisterGarden" element = {<RegisterGarden/>} />
         <Route path = "/RegisterRoundtable" element = {<RegisterRoundtable/>} />
         <Route path = "/Login" element = {<Login/>} />
+
+          <Route path="/RegisterUser" element={<RegisterUser/>}/>
+
         <Route path = "*" element = {<div><h2>404 Page Not Found</h2></div>
         } />
   </Routes>
