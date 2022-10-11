@@ -4,17 +4,31 @@ const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
 const validateSessions = require("../middleware/validate-sessions")
 
-router.post("/creategarden", async (req, res)=>{
-    const gardenUser = new Garden(
-        {gardenName : verifyUndefinedOrNull( req.body.garden.gardenName),
-         gardenNickname : verifyUndefinedOrNull(req.body.garden.gardenNickname),
-         roundtable : verifyUndefinedOrNullBoolean(req.body.garden.roundtable),
-         squareFootage : verifyUndefinedOrNull(req.body.garden.squareFootage),
-         city : verifyUndefinedOrNull(req.body.garden.city),
-         state : verifyUndefinedOrNull(req.body.garden.state),
-         memberNames : verifyUndefinedOrNull(req.body.garden.memberNames),
-         public: verifyUndefinedOrNullBoolean(req.body.garden.public)
-});
+router.post("/create", validateSessions, async (req, res) => {
+    
+    const { gardenName, city, state } = req.body;
+
+    if (!req.body || !gardenName || !city || !state || !email) {
+        //if not enough info passed, return error
+        res.status(400).json({ message: "missing gardenName, city, or state" }); //400badrequest
+    }    
+
+    const newGarden = new Garden({
+        gardenNamae,
+        city,
+        state,
+        email,
+        createdById: req.user._id,  //anyone can create a garden
+        usersTable: [{ //initialize speciescount with crestor's counts
+            uId: req.user._id,
+            certificationsCount: 0,
+
+            BugbountyCount: req.user.certifications.Budburst.speciesCount,
+            eBirdCount: req.user.certifications.eBird.speciesCount,
+            iNatCount: req.user.certifications.iNaturalist.speciesCount
+            
+        }] 
+    });
     try {
         const newGarden = await gardenUser.save();
       
@@ -23,37 +37,6 @@ router.post("/creategarden", async (req, res)=>{
         res.json({message:error.stack})
     }
 })
-
-function verifyUndefinedOrNull(item){
-    return item == undefined || item == null ? "" : item
-}
-function verifyUndefinedOrNullBoolean(item){
-    return item == undefined || item == null ? false : item
-}
-
-// router.post("/login", async (req, res) => {
-//     console.log(req.body.garden.gardenName)
-//     try{
-//     const garden =  await Garden.findOne({gardenName : req.body.garden.gardenName})
-//     if (garden){
-//         const passwordsMatch = await bcrypt.compare(
-//             req.body.garden.password,
-//             garden.password
-//           );
-//           console.log(passwordsMatch);
-//           if (passwordsMatch) {
-//             let token = jwt.sign({id: garden._id}, process.env.JWT, {expiresIn: 60*60*24})
-//             res.status(302).json({ message: "garden found", garden: garden, token : token });
-//           } else {
-//             res.status(401).json({ message: "password mismatch" });
-//           }
-//         } else {
-//           res.status(404).json({ message: "garden not found", garden: garden });
-//         }
-//       } catch (error) {
-//         res.status(503).json({ message: error.message });
-//       }
-//     });
 
 router.patch("/update/:id", validateSessions, async (req, res) => {
     console.log(req.params)
