@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
 const validateSessions = require("../middleware/validate-sessions")
 
-router.post("/creategarden", async (req,res)=>{
+router.post("/creategarden", async (req, res)=>{
     const gardenUser = new Garden(
         {gardenName : verifyUndefinedOrNull( req.body.garden.gardenName),
          gardenNickname : verifyUndefinedOrNull(req.body.garden.gardenNickname),

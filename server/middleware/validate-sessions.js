@@ -4,31 +4,18 @@ const User = require ("../models/user.model")
 
 
 const validateSessions = async (req,res,next) => {
-    const token = req.headers.authorization
+    const token = req.headers.authorization; 
     try {
-    const decodedToken = await jwt.verify(token, process.env.JWT_KEY)
-    console.log(decodedToken)
+        const decodedToken = await jwt.verify(token, process.env.JWT)
+        const user = await User.findById(decodedToken.id)
 
-    const user = await User.findById(decodedToken.id)
-
-    if (user) {
-        req.user = user;
-        return next();
-    }
+        if (user) { 
+            req.user = user; //inject credential'd user into request object
+            return next();
+        }
     } catch (error) {
-       res.json({message: error.message}) 
+    res.status(500).json({message: error.message}) 
     }
-
-
-
-   
-
-    req.test= "THIS IS A TEST"
-
-
-
-
-  
 }
 
 module.exports= validateSessions;

@@ -1,37 +1,131 @@
 const mongoose = require("mongoose");
-const GardenSchema = new mongoose.Schema({
-        gardenName: {
-        type: String,
-        required: true,
-        unique : true,
-    },
-        gardenNickname: {
-        type: String,
-    },
-        city: {
-        type: String,
-        required: true,
-    },
-        state: {
-        type: String,
-        required: true,
-    },
-        roundtable: {
-        type: Boolean | String,       
-    },
-        squareFootage: {
-        type: Number, 
-        // required: true,      
-    },
-        memberNames: {
-        type: Array,
-        required: true,      
-    },
-        public: {
-        type: Boolean,       
-    },
 
-    });
+//Schema global settings
+mongoose.Schema.Types.String.set('trim', true);
+mongoose.Schema.Types.String.set('default', '');
+mongoose.Schema.Types.Date.set('default', 'Date.now');
+mongoose.Schema.Types.Number.set('default', 0);
+
+const GardenSchema = new mongoose.Schema({
+
+	gardenName: {type: String, required: true, unique: true},
+	email: {type: String, unique: true, lowercase: true},
+	displayName: String, //fullName or orgName
+	profilePictureUrl: String, //or logo or insignia
+	coverPictureUrl: String,
+	photosTable: [{ //link to all uploaded photos
+		type: String,
+		description: String
+	}],
+	mainDescription: String, //description
+	createdById: String, //user who first created this garden
+
+	hasKMLfile: { type: Boolean, default: false },
+	kmlFilePath: String,
+
+	properties: {
+		isActive: {type: Boolean, default: true}, //conditional display, no actual deletes!
+		isVisible: { type: Boolean, default: true }, //profile (in)vibility status
+		isPrivate: {type: Boolean, default: false}, //true => app hide identifying info
+	},
+
+	location: { //exclude too specific location
+		city: String,
+		state: String,
+		country: String,
+		longitude: Number,
+		latitude: Number
+	},
+
+	apiData: {  //a garden m
+		iNaturalistGardenId: String,  //garden may have its owwn account
+		iNaturalistGardenSpeciesCount: Number,   //if so, garden's # of observations
+		iNaturalistUsersTotalCount: Number,  //cumulative member's total # of observations
+
+		eBirdGardenId: String,
+		eBirdSpeciesGardenCount: Number,
+		eBirdTotalUsersCount: Number,  //total of all members
+
+		bugBountyGardenId: String,
+		bugBountyGardenSpeciesCount: Number, 
+		bugBountyUsersTotalCount: Number    //total of all members
+	},
+
+	usersTable: [{  //garden's human members
+		uId: String,	
+		certificationsCount: Number,
+		iNatCount: Number,
+		eBirdCount: Number,
+		BugbountyCount: Number
+	}],
+
+	propertyData: { 
+		totalSquareFootage: Number, //total = impermeable + open
+		impermeableSquareFootage: Number,
+		openSquareFootage: Number,
+		hasWaterCollection: {type: Boolean, default: false},
+		waterCaptureCapacity: Number, //yearly in gallons
+		subWaterShed: {
+			name: String,
+			code: String
+		}
+	},
+
+	certifications: {  //has Cert bool when true, then method and date must be set
+
+		Pesticide_Free:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Leave_The_Leaves:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Safe_Soil:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Water_I:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Native_I:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Native_II:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Meadow_I:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Meadow_II:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		Community_Classroom_I:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date},
+		NSF_Certification:{
+			hasCert: {type: Boolean, default: false},
+			method: {type: String, enum: ['Self-verified','Submitted photo']},
+			dateOf: Date}
+	},
+  	//linksTable: [{  //social media links, personal sites, member sites
+		//title: String,
+		//url: String
+	  //}],
+    
+    //	roundtablesTable: [{ //how gardens will link to parent roundtables
+		//roundtableId: String,
+		//memberSinceDate: Date
+	//}],
+},
+{timestamps: true});  //can track createdOn and updatedOn properties automatically
+
 
 
 
