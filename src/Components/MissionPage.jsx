@@ -1,11 +1,18 @@
-import Footer from "./Footer";
-import Header from "./Header";
+import Footers from "./Footers";
+import Headers from "./Header";
+import './missionPage.css'
 
 const MissionPage = (props) => {
     return ( <>
-    <Header/>
-    <h3>We are in the midst of the sixth largest mass extinction on earth.</h3>
-    {/* Image of NYC city scape */}
+    <Headers/>
+    <div className="row">
+        <div className="top">
+            <h3>We are in the midst of the sixth largest mass extinction on earth.</h3>
+            {/* Image of NYC city scape */}
+        </div>
+    </div>
+    
+    
     <h4>Earth is on track to lose half its species in the next 80 years...and the vast majority of these species are still unknown to science</h4>
     {/* black background */}
     {/* begin with translucent box with THE PROBLEM, VISION, MISSION, VALUES */}
@@ -49,7 +56,7 @@ const MissionPage = (props) => {
         <h5>Join the BRIA community</h5>
         <p>Subscribe to start your journey with BRIA. It’s free, and you can unsubscribe at any time.</p>
         <input type="text" placeholder="Email*" /><button>Join BRIA</button>
-    <Footer/>
+    <Footers/>
     </> );
 }
  

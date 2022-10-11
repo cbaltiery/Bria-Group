@@ -1,9 +1,9 @@
-import Header from "./Header";
-import Footer from "./Footer";
+import Headers from "./Header";
+import Footers from "./Footers";
 
 const ModelPage = (props) => {
     return ( <>
-    <Header/>
+    <Headers/>
 
 {/* throughout the page there is a box on the right side with hyperlinks */}
 
@@ -189,7 +189,7 @@ const ModelPage = (props) => {
 <p>Scalable solutions are found when parellel prototyping and knowledge sharing is the norm in every facet of operations.</p>
 
 {/* The above will be part V */}
-    <Footer/>
+    <Footers/>
     </> );
 }
  

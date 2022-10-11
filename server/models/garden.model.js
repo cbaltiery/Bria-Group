@@ -10,7 +10,6 @@ const GardenSchema = new mongoose.Schema({
 
 	gardenName: {type: String, required: true, unique: true},
 	email: {type: String, unique: true, lowercase: true},
-    hashedPassword: {type: String, required: true},
 	displayName: String, //fullName or orgName
 	profilePictureUrl: String, //or logo or insignia
 	coverPictureUrl: String,
@@ -27,10 +26,7 @@ const GardenSchema = new mongoose.Schema({
 	properties: {
 		isActive: {type: Boolean, default: true}, //conditional display, no actual deletes!
 		isVisible: { type: Boolean, default: true }, //profile (in)vibility status
-		
-		//isPrivate: {type: Boolean, default: false}, //true => app hide identifying info
-			//removed, functionality overlap with isVisible.
-
+		isPrivate: {type: Boolean, default: false}, //true => app hide identifying info
 	},
 
 	location: { //exclude too specific location
@@ -55,22 +51,12 @@ const GardenSchema = new mongoose.Schema({
 		bugBountyUsersTotalCount: Number    //total of all members
 	},
 
-	linksTable: [{  //social media links, personal sites, member sites
-		title: String,
-		url: String
-	}],
-
 	usersTable: [{  //garden's human members
 		uId: String,	
 		certificationsCount: Number,
 		iNatCount: Number,
 		eBirdCount: Number,
 		BugbountyCount: Number
-	}],
-
-	roundtablesTable: [{ //how gardens will link to parent roundtables
-		roundtableId: String,
-		memberSinceDate: Date
 	}],
 
 	propertyData: { 
@@ -127,9 +113,19 @@ const GardenSchema = new mongoose.Schema({
 			hasCert: {type: Boolean, default: false},
 			method: {type: String, enum: ['Self-verified','Submitted photo']},
 			dateOf: Date}
-	}
+	},
+  	//linksTable: [{  //social media links, personal sites, member sites
+		//title: String,
+		//url: String
+	  //}],
+    
+    //	roundtablesTable: [{ //how gardens will link to parent roundtables
+		//roundtableId: String,
+		//memberSinceDate: Date
+	//}],
 },
 {timestamps: true});  //can track createdOn and updatedOn properties automatically
+
 
 
 

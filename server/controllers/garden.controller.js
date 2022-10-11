@@ -6,24 +6,30 @@ const validateSessions = require("../middleware/validate-sessions")
 
 router.post("/creategarden", async (req, res)=>{
     const gardenUser = new Garden(
-        {gardenName : req.body.garden.gardenName,
-         gardenNickname : req.body.garden.gardenNickname,
-         roundtable : req.body.garden.roundtable,
-         sqFootage : req.body.garden.sqFootage,
-         password : bcrypt.hashSync (req.body.garden.password, 10),
-         city : req.body.garden.city,
-         state : req.body.garden.state,
-         memberNames : req.body.garden.memberNames,
-         public: req.body.garden.public
+        {gardenName : verifyUndefinedOrNull( req.body.garden.gardenName),
+         gardenNickname : verifyUndefinedOrNull(req.body.garden.gardenNickname),
+         roundtable : verifyUndefinedOrNullBoolean(req.body.garden.roundtable),
+         squareFootage : verifyUndefinedOrNull(req.body.garden.squareFootage),
+         city : verifyUndefinedOrNull(req.body.garden.city),
+         state : verifyUndefinedOrNull(req.body.garden.state),
+         memberNames : verifyUndefinedOrNull(req.body.garden.memberNames),
+         public: verifyUndefinedOrNullBoolean(req.body.garden.public)
 });
     try {
         const newGarden = await gardenUser.save();
-        let token = jwt.sign({id: newGarden._id}, process.env.JWT, {expiresIn: 60*60*24})
-        res.json({gardenUser : newGarden, token : token});
+      
+        res.json({gardenUser : newGarden});
     } catch (error) {
-        res.json({message:error.message})
+        res.json({message:error.stack})
     }
 })
+
+function verifyUndefinedOrNull(item){
+    return item == undefined || item == null ? "" : item
+}
+function verifyUndefinedOrNullBoolean(item){
+    return item == undefined || item == null ? false : item
+}
 
 // router.post("/login", async (req, res) => {
 //     console.log(req.body.garden.gardenName)
@@ -69,8 +75,8 @@ router.patch("/update/:id", validateSessions, async (req, res) => {
     }
     
 })
-
-router.get("/getgardens", validateSessions, async (req,res)=>{
+//! validateSessions removed for testing purposes, place between "/getgardens", validateSessions, async
+router.get("/getgardens", async (req,res)=>{
     try {
         const garden = await Garden.find()
         res.json({garden : garden})

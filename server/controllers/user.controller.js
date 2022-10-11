@@ -1,3 +1,4 @@
+require ("dotenv").config()
 const router = require("express").Router();
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
@@ -35,6 +36,7 @@ router.post("/register", async (req, res) => {  //used to be /createuser
 
 router.post("/login", async (req, res) => {
 
+
     //object destructuring
     const { email, password } = req.body;
 
@@ -49,7 +51,7 @@ router.post("/login", async (req, res) => {
             const passwordsMatch = await bcrypt.compare(password, user.password);
     
             if (passwordsMatch) { //passwords match, user found!, create 24hour logged-in token
-                let token = jwt.sign({id: user._id}, process.env.JWT, {expiresIn: '24h'})
+                let token = jwt.sign({id: user._id}, process.env.JWT_KEY, {expiresIn: '24h'})
                 res.status(200).json({ user: user, token : token }); //return logged-in user and 24hour token //200OK
             } else {
                 res.status(401).json({ message: `incorrect password for ${email}`});  //401wrong credentials
@@ -81,42 +83,42 @@ router.patch("/update/:id", validateSessions, async (req, res) => {
         //as long as user is logged in and parameter is named correctly vis UserSchema
 
         //all from UserSchema.  when that gets updated, so must this
-        if (!req.body.displayName) { user.displayName = req.body.displayName; };
-        if (!req.body.profilePictureUrl) { user.profilePictureUrl = req.body.profilePictureUrl; };
-        if (!req.body.coverPictureUrl) { user.coverPictureUrl = req.body.coverPictureUrl; };
-        if (!req.body.aboutBlurb) { user.aboutBlurb = req.body.aboutBlurb; };
+        if (req.body.displayName) { user.displayName = req.body.displayName; };
+        if (req.body.profilePictureUrl) { user.profilePictureUrl = req.body.profilePictureUrl; };
+        if (req.body.coverPictureUrl) { user.coverPictureUrl = req.body.coverPictureUrl; };
+        if (req.body.aboutBlurb) { user.aboutBlurb = req.body.aboutBlurb; };
 
         //properties        
-        if (!req.body.properties.isUserBriaAdmin) { user.properties.isUserBriaAdmin = req.body.properties.isUserBriaAdmin; };
-        if (!req.body.properties.isUserEmailVerfied) { user.properties.isUserEmailVerfied = req.body.properties.isUserEmailVerfied; };
-        if (!req.body.properties.isProfileActive) { user.properties.isProfileActive = req.body.properties.isProfileActive; };
-        if (!req.body.properties.isProfilePrivate) { user.properties.isProfilePrivate = req.body.properties.isProfilePrivate; };
-        if (!req.body.properties.isProfileVisibile) { user.properties.isProfileVisibile = req.body.properties.isProfileVisibile; };
+        if (req.body.properties.isUserBriaAdmin) { user.properties.isUserBriaAdmin = req.body.properties.isUserBriaAdmin; };
+        if (req.body.properties.isUserEmailVerfied) { user.properties.isUserEmailVerfied = req.body.properties.isUserEmailVerfied; };
+        if (req.body.properties.isProfileActive) { user.properties.isProfileActive = req.body.properties.isProfileActive; };
+        if (req.body.properties.isProfilePrivate) { user.properties.isProfilePrivate = req.body.properties.isProfilePrivate; };
+        if (req.body.properties.isProfileVisibile) { user.properties.isProfileVisibile = req.body.properties.isProfileVisibile; };
 
         //location
-        if (!req.body.location.city) { userbody.location.city = req.body.location.city; };
-        if (!req.body.location.state) { userbody.location.state = req.body.location.state; };
-        if (!req.body.location.country) { userbody.location.country = req.body.location.country; };
-        if (!req.body.location.longitude) { userbody.location.longitude = req.body.location.longitude; };
-        if (!req.body.location.latitude) { userbody.location.latitude = req.body.location.latitude; };
+        if (req.body.location.city) { userbody.location.city = req.body.location.city; };
+        if (req.body.location.state) { userbody.location.state = req.body.location.state; };
+        if (req.body.location.country) { userbody.location.country = req.body.location.country; };
+        if (req.body.location.longitude) { userbody.location.longitude = req.body.location.longitude; };
+        if (req.body.location.latitude) { userbody.location.latitude = req.body.location.latitude; };
 
         //certifications
         //Budburst
-        if (!req.body.certifications.Budburst.uId) { userbody.certifications.Budburst.uId = req.body.certifications.Budburst.uId; };
-        if (!req.body.certifications.Budburst.speciesCount) { userbody.certifications.Budburst.speciesCount = req.body.certifications.Budburst.speciesCount; };
-        if (!req.body.certifications.Budburst.when_Budburst_I) { userbody.certifications.Budburst.when_Budburst_I = req.body.certifications.Budburst.when_Budburst_I; };
-        if (!req.body.certifications.Budburst.when_Budburst_II) { userbody.certifications.Budburst.when_Budburst_II = req.body.certifications.Budburst.when_Budburst_II; };
+        if (req.body.certifications.Budburst.uId) { userbody.certifications.Budburst.uId = req.body.certifications.Budburst.uId; };
+        if (req.body.certifications.Budburst.speciesCount) { userbody.certifications.Budburst.speciesCount = req.body.certifications.Budburst.speciesCount; };
+        if (req.body.certifications.Budburst.when_Budburst_I) { userbody.certifications.Budburst.when_Budburst_I = req.body.certifications.Budburst.when_Budburst_I; };
+        if (req.body.certifications.Budburst.when_Budburst_II) { userbody.certifications.Budburst.when_Budburst_II = req.body.certifications.Budburst.when_Budburst_II; };
 
         //eBird       
-        if (!req.body.certifications.eBird.uId) { userbody.certifications.eBird.uId = req.body.certifications.eBird.uId; };
-        if (!req.body.certifications.eBird.speciesCount) { userbody.certifications.eBird.speciesCount = req.body.certifications.eBird.speciesCount; };
-        if (!req.body.certifications.eBird.when_eBird_I) { userbody.certifications.eBird.when_eBird_I = req.body.certifications.eBird.when_eBird_I; };
+        if (req.body.certifications.eBird.uId) { userbody.certifications.eBird.uId = req.body.certifications.eBird.uId; };
+        if (req.body.certifications.eBird.speciesCount) { userbody.certifications.eBird.speciesCount = req.body.certifications.eBird.speciesCount; };
+        if (req.body.certifications.eBird.when_eBird_I) { userbody.certifications.eBird.when_eBird_I = req.body.certifications.eBird.when_eBird_I; };
 
         //iNaturalist
-        if (!req.body.certifications.iNaturalist.uId) { userbody.certifications.iNaturalist.uId = req.body.certifications.iNaturalist.uId; };
-        if (!req.body.certifications.iNaturalist.speciesCount) { userbody.certifications.iNaturalist.speciesCount = req.body.certifications.iNaturalist.speciesCount; };
-        if (!req.body.certifications.iNaturalist.when_iNaturalist_I) { userbody.certifications.iNaturalist.when_iNaturalist_I = req.body.certifications.iNaturalist.when_iNaturalist_I; };
-        if (!req.body.certifications.iNaturalist.when_iNaturalist_II) { userbody.certifications.iNaturalist.when_iNaturalist_II = req.body.certifications.iNaturalist.when_iNaturalist_II; };
+        if (req.body.certifications.iNaturalist.uId) { userbody.certifications.iNaturalist.uId = req.body.certifications.iNaturalist.uId; };
+        if (req.body.certifications.iNaturalist.speciesCount) { userbody.certifications.iNaturalist.speciesCount = req.body.certifications.iNaturalist.speciesCount; };
+        if (req.body.certifications.iNaturalist.when_iNaturalist_I) { userbody.certifications.iNaturalist.when_iNaturalist_I = req.body.certifications.iNaturalist.when_iNaturalist_I; };
+        if (req.body.certifications.iNaturalist.when_iNaturalist_II) { userbody.certifications.iNaturalist.when_iNaturalist_II = req.body.certifications.iNaturalist.when_iNaturalist_II; };
 
         user.save();
         res.status(200).json({message: "user updated", user : user}); //200 OK
@@ -154,6 +156,7 @@ router.get("/getUsers/:count", validateSessions, async (req, res) => {  //return
                 delete users[user]; //don't return these users to UI
             }
         } 
+        
         res.status(200).json({ users: users });  //200OK,return what's left
                                                 //front end never needs to check
     } catch (error) {
@@ -203,6 +206,7 @@ router.delete("/deleteUserById/:id", validateSessions, async (req, res)=>{
         }
         //this prevents profile from being returned
         user.properties.isProfileActive = false;
+        user.save();
         res.status(200).json({ message: "user deleted" }) //200OK
     } catch (error) {
         res.status(500).json({message:error.message})  //500internalservererror
