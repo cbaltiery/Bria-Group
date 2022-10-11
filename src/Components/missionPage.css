@@ -1,0 +1,65 @@
+.mission-top{
+    flex: 80%;
+    padding : 200px;
+    background-color: burlywood;
+ /* background-image: url('./components/images/nyc.jpeg'); */
+}
+.mission-middle{
+    flex: 80%;
+    padding : 200px;
+    background-color: rgb(78, 78, 78);
+}
+.mission{
+    flex: 80%;
+    padding : 300px;
+    background-color: rgb(122, 156, 103);
+    text-align: right;
+    
+}
+.mission-vision{
+    flex: 80%;
+    padding : 300px;
+    background-color: black;
+}
+.mission-box1{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.mission-box2{
+    width:50%;
+    float:right;
+    text-align: center;
+}
+.revoluton{
+    flex: 80%;
+    padding : 100px;
+    background-color: green;
+    text-align: center;
+}
+#text-side{
+    width: 70%;
+    background-color: rgba(248, 245, 227, 0.973);
+    float: left;
+}
+#logo-side{
+    width: 30%;
+    height: 16.4em;
+    background-color: grey;
+    float: right;
+}
+.missions{
+    width:70%;
+    background-color: forestgreen;
+    float: left;
+}
+.values{
+    width: 70%;
+    background-color: rgba(248, 245, 227, 0.973);
+    float: left;
+}
+.join{
+    flex: 80%;
+    padding : 300px;
+    background-color: rgb(122, 156, 103); 
+}

@@ -1,11 +1,11 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom'
-import Home from './Components/Home';
-import MissionPage from './Components/MissionPage'
-import ModelPage from './Components/ModelPage';
-import Login from './Components/Login';
-import RegisterGarden from './Components/RegisterGarden';
-import RegisterRoundtable from './Components/RegisterRoundtable';
+import Home from './components/Home';
+import MissionPage from './components/MissionPage'
+import ModelPage from './components/ModelPage';
+import Login from './components/Login';
+import RegisterGarden from './components/RegisterGarden';
+import RegisterRoundtable from './components/RegisterRoundtable';
 
 function App() {
 
