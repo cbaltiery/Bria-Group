@@ -40,7 +40,7 @@ function Login(props) {
     };
 
     try {
-      const response = await fetch(Endpoints.user.loginUser, requestOptions);
+      const response = await fetch(Endpoints.user.login, requestOptions);
       const data = await response.json();
       localStorage.setItem("token", data.token)
       console.log(data) 
@@ -80,10 +80,7 @@ function Login(props) {
         <Button type="submit">Log In</Button>
         <h4>Not a member?</h4>
         <button onClick={navigateToRegisterUser}>Sign Up!</button>
-        {/* <Routes>
-          <Route path="/RegisterUser" element={<RegisterUser/>}>
-          </Route>
-        </Routes> */}
+        
         </Form>
     </div>
   );

@@ -1,9 +1,10 @@
-require ("dotenv").config()
+
 const router = require("express").Router();
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
-const validateSessions = require("../middleware/validate-sessions")
+const validateSessions = require("../middleware/validate-sessions");
+const { response } = require("express");
 
 router.post("/register", async (req, res) => {  //used to be /createuser
     
@@ -12,9 +13,16 @@ router.post("/register", async (req, res) => {  //used to be /createuser
 
     if (!req.body || !username || !email || !password) {
         //if not enough info passed, return error
-        res.status(400).json({ message: "malformed registration data sent" }); //400badrequest
+     return res.status(400).json({ message: "malformed registration data sent" }); //400badrequest
     }
     try {
+        const test = await User.findOne({email});
+        console.log(test)
+        if (test){
+            return res.status(400).json({ message: "user already exists"})
+        }
+
+
         //"salting" adds protection
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);
@@ -72,7 +80,7 @@ router.patch("/update/:id", validateSessions, async (req, res) => {
 
     //user is trying to change someone else's profile AND not bria admin
     if (req.username != req.user.username && !req.user.properties.isBriaAdmin) {
-        res.status(401).json({ message: "incorrect credentials" })
+        res.status(401).json({ message: "cannot modify another user unless admin" })
     }
     //user intendds to edit themselves or isBriaAdmin === true   
 
@@ -134,7 +142,7 @@ router.get("/getUsers/:count", validateSessions, async (req, res) => {  //return
 
     //if a count exists AND is less than zero
     if (req.params.count && req.params.count <= 0) { 
-        res.status(400).json({ message: "invalid request" }) //400badrequest
+        res.status(400).json({ message: "invalid request" }); //400badrequest
     }
 
     if (req.params.count > 100) { req.params.count = 100; };  //limit to 100 if > 100
@@ -151,14 +159,13 @@ router.get("/getUsers/:count", validateSessions, async (req, res) => {  //return
 
         //remove private and invisible users
 
-        // forEach(user in users) //foreach, if inactive or invisibile
-        //     if (!user.properties.isProfileActive || !user.properties.isProfileVisibile) {
-        //         delete users[user]; //don't return these users to UI
-        //     }
-    
-        
+        users.forEach(function(user){ //foreach, if inactive or invisibile
+            if (!user.properties.isProfileActive || !user.properties.isProfileVisibile) { 
+                delete users[user]; //don't return these users to UI
+            }
+        });
+
         res.status(200).json({ users: users });  //200OK,return what's left
-                                                //front end never needs to check
     } catch (error) {
         res.status(500).json({ message: error.message}); //500internalservererror
     }
@@ -180,7 +187,7 @@ router.get("/getUserById/:id", validateSessions, async (req, res)=>{
     }
 })
 
-router.delete("/deleteUserById/:id", validateSessions, async (req, res)=>{
+router.delete("/deleteUserById/:id", validateSessions, async (req, res) => {
     
     //delete no longer deletes from the database.  if we find the user, update the status flag
     
@@ -193,7 +200,7 @@ router.delete("/deleteUserById/:id", validateSessions, async (req, res)=>{
 
     //user is trying to change someone else's profile AND not bria admin
     if (req.username != req.user.username && !req.user.properties.isBriaAdmin) {
-        res.status(401).json({ message: "incorrect credentials" })
+        res.status(401).json({ message: "cannot modify another user unless admin" })
     }
     //user intendds to edit themselves or isBriaAdmin === true 
 
@@ -201,7 +208,7 @@ router.delete("/deleteUserById/:id", validateSessions, async (req, res)=>{
         const user = await User.findById(req.params.id) //look them up
         
         //error check:  if nonexistent
-        if (!user){
+        if (!user) {
             res.status(400).json({ message: "user not found" });  //400badrequest
         }
         //this prevents profile from being returned
@@ -209,8 +216,14 @@ router.delete("/deleteUserById/:id", validateSessions, async (req, res)=>{
         user.save();
         res.status(200).json({ message: "user deleted" }) //200OK
     } catch (error) {
-        res.status(500).json({message:error.message})  //500internalservererror
+        res.status(500).json({ message: error.message })  //500internalservererror
     }
-})
+});
+
+router.post("/getiNaturalistData/:iNatId", validateSessions, async (req, res) => {
+
+
+
+});
 
 module.exports = router

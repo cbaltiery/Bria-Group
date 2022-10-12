@@ -18,7 +18,7 @@ const GardenSchema = new mongoose.Schema({
 		description: String
 	}],
 	mainDescription: String, //description
-	createdById: String, //user who first created this garden
+	createdById: mongoose.Types.ObjectId, //set the rec.user._id upon creation
 
 	hasKMLfile: { type: Boolean, default: false },
 	kmlFilePath: String,
@@ -29,9 +29,9 @@ const GardenSchema = new mongoose.Schema({
 		isPrivate: {type: Boolean, default: false}, //true => app hide identifying info
 	},
 
-	location: { //exclude too specific location
-		city: String,
-		state: String,
+	location: { //city, state REQUIRED for garden, exclude too specific location
+		city: {type: String, required: true},
+		state: {type: String, required: true},
 		country: String,
 		longitude: Number,
 		latitude: Number
@@ -52,7 +52,7 @@ const GardenSchema = new mongoose.Schema({
 	},
 
 	usersTable: [{  //garden's human members
-		uId: String,	
+		uId: mongoose.Types.ObjectId,	
 		certificationsCount: Number,
 		iNatCount: Number,
 		eBirdCount: Number,
