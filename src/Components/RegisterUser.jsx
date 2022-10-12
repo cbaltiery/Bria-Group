@@ -5,8 +5,8 @@ import { Endpoints } from "./endPoints";
 const RegisterUser = (props) => {
 
     
-        const [userName, setUsername] = useState("");
-        const [displayName, setDisplayname] = useState("")
+        const [username, setUsername] = useState("");
+        // const [displayName, setDisplayname] = useState("")
         const [email, setEmail] = useState("")
         const [password, setPassword] = useState("");
       
@@ -15,9 +15,9 @@ const RegisterUser = (props) => {
           console.log("signup clicked");
       
           let bodyObject = JSON.stringify({
-            userName: userName,
+            username: username,
             email:email,
-            displayName: displayName,
+            // displayName: displayName,
             password: password,
           });
       
@@ -31,9 +31,8 @@ const RegisterUser = (props) => {
           };
       
           try {
-            const response = await fetch(Endpoints.user.signup, requestOptions);
+            const response = await fetch(Endpoints.user.register, requestOptions);
             const data = await response.json();
-            props.updateToken(data.token);
           } catch (error) {
             console.error(error);
           }
@@ -52,11 +51,11 @@ const RegisterUser = (props) => {
                     }}
                     placeholder="Username*"
                     name="username"
-                    value={userName}
+                    value={username}
                 />
             </FormGroup>
 
-            <FormGroup>
+            {/* <FormGroup>
                 <Label htmlFor="displayname">DisplayName</Label>
                 <Input
                     onChange={(e) => {
@@ -66,7 +65,7 @@ const RegisterUser = (props) => {
                     name="displayname"
                     value={displayName}
                 />
-            </FormGroup>
+            </FormGroup> */}
 
             <FormGroup>
                 <Label htmlFor="email">Email</Label>
@@ -92,7 +91,7 @@ const RegisterUser = (props) => {
                 />
             </FormGroup>
 
-            <Button onClick={handleSubmit}>Submit</Button>
+            <Button type="submit" onClick={handleSubmit}>Submit</Button>
         </Form>
     </div>
     </> );
