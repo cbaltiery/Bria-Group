@@ -155,9 +155,10 @@ router.get("/getUsers/:count", validateSessions, async (req, res) => {  //return
             if (!user.properties.isProfileActive || !user.properties.isProfileVisibile) { 
                 delete users[user]; //don't return these users to UI
             }
-        });
-
+            });
+    
         res.status(200).json({ users: users });  //200OK,return what's left
+                                               
     } catch (error) {
         res.status(500).json({ message: error.message}); //500internalservererror
     }
@@ -213,8 +214,6 @@ router.delete("/deleteUserById/:id", validateSessions, async (req, res) => {
 });
 
 router.post("/getiNaturalistData/:iNatId", validateSessions, async (req, res) => {
-
-
 
 });
 
