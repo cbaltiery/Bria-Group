@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //Schema global settings
 mongoose.Schema.Types.String.set('trim', true);
 mongoose.Schema.Types.String.set('default', '');
-mongoose.Schema.Types.Date.set('default', 'Date.now');
+mongoose.Schema.Types.Date.set('default', Date.now);
 mongoose.Schema.Types.Number.set('default', 0);
 
 const UserSchema = new mongoose.Schema({
