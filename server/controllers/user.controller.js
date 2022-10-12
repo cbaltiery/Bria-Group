@@ -123,7 +123,7 @@ router.patch("/update/:id", validateSessions, async (req, res) => {
         user.save();
         res.status(200).json({message: "user updated", user : user}); //200 OK
     } catch (error) {
-        res.status(500)json({ message: error.message });  //500internalservererror
+        res.status(500).json({ message: error.message });  //500internalservererror
     }
     
 })
@@ -151,11 +151,11 @@ router.get("/getUsers/:count", validateSessions, async (req, res) => {  //return
 
         //remove private and invisible users
 
-        forEach(user in users){ //foreach, if inactive or invisibile
-            if (!user.properties.isProfileActive || !user.properties.isProfileVisibile) {
-                delete users[user]; //don't return these users to UI
-            }
-        } 
+        // forEach(user in users) //foreach, if inactive or invisibile
+        //     if (!user.properties.isProfileActive || !user.properties.isProfileVisibile) {
+        //         delete users[user]; //don't return these users to UI
+        //     }
+    
         
         res.status(200).json({ users: users });  //200OK,return what's left
                                                 //front end never needs to check
