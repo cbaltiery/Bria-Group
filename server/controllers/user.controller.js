@@ -102,23 +102,23 @@ router.patch("/update/:id", validateSessions, async (req, res) => {
         if (req.body.location.longitude) { userbody.location.longitude = req.body.location.longitude; };
         if (req.body.location.latitude) { userbody.location.latitude = req.body.location.latitude; };
 
-        //certifications
-        //Budburst
-        if (req.body.certifications.Budburst.uId) { userbody.certifications.Budburst.uId = req.body.certifications.Budburst.uId; };
-        if (req.body.certifications.Budburst.speciesCount) { userbody.certifications.Budburst.speciesCount = req.body.certifications.Budburst.speciesCount; };
-        if (req.body.certifications.Budburst.when_Budburst_I) { userbody.certifications.Budburst.when_Budburst_I = req.body.certifications.Budburst.when_Budburst_I; };
-        if (req.body.certifications.Budburst.when_Budburst_II) { userbody.certifications.Budburst.when_Budburst_II = req.body.certifications.Budburst.when_Budburst_II; };
+        // //certifications
+        // //Budburst
+        // if (req.body.certifications.Budburst.uId) { userbody.certifications.Budburst.uId = req.body.certifications.Budburst.uId; };
+        // if (req.body.certifications.Budburst.speciesCount) { userbody.certifications.Budburst.speciesCount = req.body.certifications.Budburst.speciesCount; };
+        // if (req.body.certifications.Budburst.when_Budburst_I) { userbody.certifications.Budburst.when_Budburst_I = req.body.certifications.Budburst.when_Budburst_I; };
+        // if (req.body.certifications.Budburst.when_Budburst_II) { userbody.certifications.Budburst.when_Budburst_II = req.body.certifications.Budburst.when_Budburst_II; };
 
-        //eBird       
-        if (req.body.certifications.eBird.uId) { userbody.certifications.eBird.uId = req.body.certifications.eBird.uId; };
-        if (req.body.certifications.eBird.speciesCount) { userbody.certifications.eBird.speciesCount = req.body.certifications.eBird.speciesCount; };
-        if (req.body.certifications.eBird.when_eBird_I) { userbody.certifications.eBird.when_eBird_I = req.body.certifications.eBird.when_eBird_I; };
+        // //eBird       
+        // if (req.body.certifications.eBird.uId) { userbody.certifications.eBird.uId = req.body.certifications.eBird.uId; };
+        // if (req.body.certifications.eBird.speciesCount) { userbody.certifications.eBird.speciesCount = req.body.certifications.eBird.speciesCount; };
+        // if (req.body.certifications.eBird.when_eBird_I) { userbody.certifications.eBird.when_eBird_I = req.body.certifications.eBird.when_eBird_I; };
 
-        //iNaturalist
-        if (req.body.certifications.iNaturalist.uId) { userbody.certifications.iNaturalist.uId = req.body.certifications.iNaturalist.uId; };
-        if (req.body.certifications.iNaturalist.speciesCount) { userbody.certifications.iNaturalist.speciesCount = req.body.certifications.iNaturalist.speciesCount; };
-        if (req.body.certifications.iNaturalist.when_iNaturalist_I) { userbody.certifications.iNaturalist.when_iNaturalist_I = req.body.certifications.iNaturalist.when_iNaturalist_I; };
-        if (req.body.certifications.iNaturalist.when_iNaturalist_II) { userbody.certifications.iNaturalist.when_iNaturalist_II = req.body.certifications.iNaturalist.when_iNaturalist_II; };
+        // //iNaturalist
+        // if (req.body.certifications.iNaturalist.uId) { userbody.certifications.iNaturalist.uId = req.body.certifications.iNaturalist.uId; };
+        // if (req.body.certifications.iNaturalist.speciesCount) { userbody.certifications.iNaturalist.speciesCount = req.body.certifications.iNaturalist.speciesCount; };
+        // if (req.body.certifications.iNaturalist.when_iNaturalist_I) { userbody.certifications.iNaturalist.when_iNaturalist_I = req.body.certifications.iNaturalist.when_iNaturalist_I; };
+        // if (req.body.certifications.iNaturalist.when_iNaturalist_II) { userbody.certifications.iNaturalist.when_iNaturalist_II = req.body.certifications.iNaturalist.when_iNaturalist_II; };
 
         user.save();
         res.status(200).json({message: "user updated", user : user}); //200 OK
