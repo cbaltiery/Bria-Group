@@ -7,6 +7,7 @@ import Login from './components/Login';
 import RegisterGarden from './components/RegisterGarden';
 import RegisterRoundtable from './components/RegisterRoundtable';
 import RegisterUser from './components/RegisterUser';
+import GardenBio from './components/GardenBio';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
         <Route path = "/MissionPage" element = {<MissionPage/>} />
         <Route path = "/ModelPage" element = {<ModelPage/>} />
         <Route path = "/RegisterGarden" element = {<RegisterGarden/>} />
+        <Route path = "/GardenBio" element = {<GardenBio/>} />
         <Route path = "/RegisterRoundtable" element = {<RegisterRoundtable/>} />
         <Route path = "/Login" element = {<Login/>} />
 

@@ -22,7 +22,7 @@ const Header = (props) => {
   };
 
   // Toggled between Login and Member profile depending on the presence of a token.
-  const protectedViews = () => {
+  const protectedViewsLogin = () => {
     return localStorage.getItem("token") === sessionToken ?
     <NavDropdown title="Member Profile" id="basic-nav-dropdown">
               <NavDropdown.Item href="#Account-Settings">Account Settings</NavDropdown.Item>
@@ -38,6 +38,25 @@ const Header = (props) => {
      : 
     <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
   }
+
+  const protectedViewsMember = () => {
+    return localStorage.getItem("token") === sessionToken ?
+    <NavDropdown title="Member Profile" id="basic-nav-dropdown">
+              <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
+              {/* <NavDropdown.Divider /> */}
+            </NavDropdown>
+     : 
+     <NavDropdown title="member garden's" id="basic-nav-dropdown">
+      <NavDropdown.Item href="/GardenBio">Garden Bio</NavDropdown.Item>
+     {/* <NavDropdown.Divider /> */}
+     {/* <NavDropdown.Item href="#Profile-Page">
+       Profile Page  
+     </NavDropdown.Item> */}
+     {/* <NavDropdown.Divider /> */}
+   </NavDropdown>
+    
+  }
+
 
     // let activeStyle = {color: "green"}
     // let inActiveStyle = {textDecoration: "none"}
@@ -95,20 +114,8 @@ const emailinput = document.getElementById("email-input")
           <Nav className="me-auto">
             <Nav.Link href="/MissionPage">mission</Nav.Link>
             <Nav.Link href="/ModelPage">model</Nav.Link>
-            <NavDropdown title="member gardens" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/RegisterRoundTable">
-                register a roundtable 
-              </NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-              {/* <NavDropdown.Item href="#action/3.3">garden accredidations</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                public garden page
-              </NavDropdown.Item> */}
-            </NavDropdown>
-            {protectedViews()}
+            {protectedViewsMember()}
+            {protectedViewsLogin()}
           </Nav>
         </Navbar.Collapse>
       </Container>
