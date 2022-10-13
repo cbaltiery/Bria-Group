@@ -3,7 +3,7 @@ const Express = require("express");
 const server = Express();
 const cors = require("cors")
 server.use(cors())
-
+console.log(process.env.DATABASEURL)
 // ------- Controllers -------\\
 const user = require("./controllers/user.controller")
 const garden = require("./controllers/garden.controller")
