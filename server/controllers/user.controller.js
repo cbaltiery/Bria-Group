@@ -12,7 +12,7 @@ router.post("/register", async (req, res) => {  //used to be /createuser
 
     if (!req.body || !username || !email || !password) {
         //if not enough info passed, return error
-        res.status(400).json({ message: "malformed registration data sent" }); //400badrequest
+        res.status(400).json({ message: "malformrsed registration data sent" }); //400badrequest
     }
     try {
         //"salting" adds protection

@@ -1,11 +1,11 @@
 import '../App.css'
 import { useEffect, useState, React } from "react";
-import { Container, Nav, Navbar, NavDropdown, Button, Form, InputGroup } from "react-bootstrap"
+import { Container, Nav, Navbar, NavDropdown, Button, Form, InputGroup, Alert } from "react-bootstrap"
 import { Endpoints } from './endPoints';
 
 
 const Header = (props) => {
-
+  
   //  establish whether a token is accessed or not
   const [sessionToken, setSessionToken] = useState("")
   
@@ -39,19 +39,37 @@ const Header = (props) => {
     <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
   }
 
+  function AlertDismissibleExample() {
+    if (show) {
+      return (
+        <Alert variant="success" onClose={() => setShow(false)} dismissible id = "alert-box">
+          <Alert.Heading>Submission Successful</Alert.Heading>
+        </Alert>
+      );
+    }
+    return <Button 
+    variant="success" 
+    id="button-addon2" 
+    onClick = {handleClick}>
+      Join BRIA
+    </Button>;
+  }
+
     // let activeStyle = {color: "green"}
     // let inActiveStyle = {textDecoration: "none"}
 
 
 // ------------- Email Sign up -------------- \\
 
-
+const [show, setShow] = useState(false);
 const [email, setEmail] = useState ("")
 const emailinput = document.getElementById("email-input")
 
     async function handleClick(e){
       e.preventDefault();
       emailinput.value = ("")
+      setShow(true)
+      
 
       let bodyObject = JSON.stringify(
         {
@@ -98,6 +116,8 @@ const emailinput = document.getElementById("email-input")
             <NavDropdown title="member gardens" id="basic-nav-dropdown">
               <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item href="/DisplayGarden">display garden</NavDropdown.Item> //! DELETE DISPLAY GARDEN PRIOR TO MERGE
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/RegisterRoundTable">
                 register a roundtable 
               </NavDropdown.Item>
@@ -123,9 +143,7 @@ const emailinput = document.getElementById("email-input")
           aria-label="Email*"
           aria-describedby="basic-addon2"
         />
-        <Button variant="success" id="button-addon2" onClick={handleClick}>
-          Join BRIA
-        </Button>
+        {AlertDismissibleExample()} 
       </InputGroup>
     {/* </div> */}
     </div>
