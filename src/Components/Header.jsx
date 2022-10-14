@@ -31,6 +31,12 @@ const Header = (props) => {
                 Profile Page  
               </NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item href="/RegisterGarden">Register a garden</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="/RegisterRoundTable">
+                Register a roundtable 
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item onClick={clearToken} href="#Log-Out">
                 LOGOUT  
               </NavDropdown.Item>
@@ -38,6 +44,12 @@ const Header = (props) => {
      : 
     <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
   }
+
+  const protectedViewsGarden = () => {
+    return localStorage.getItem("token") === sessionToken ?
+      <Nav.Link href="/DisplayGarden">Gardens</Nav.Link> 
+    : <Nav.Link href="/GardenBio">Gardens</Nav.Link> 
+}
 
 
   function AlertDismissibleExample() {
@@ -57,23 +69,23 @@ const Header = (props) => {
   }
 
 
-  const protectedViewsMember = () => {
-    return localStorage.getItem("token") === sessionToken ?
-    <NavDropdown title="Member Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-            </NavDropdown>
-     : 
-     <NavDropdown title="member garden's" id="basic-nav-dropdown">
-      <NavDropdown.Item href="/GardenBio">Garden Bio</NavDropdown.Item>
-     {/* <NavDropdown.Divider /> */}
-     {/* <NavDropdown.Item href="#Profile-Page">
-       Profile Page  
-     </NavDropdown.Item> */}
-     {/* <NavDropdown.Divider /> */}
-   </NavDropdown>
+  // const protectedViewsMember = () => {
+  //   return localStorage.getItem("token") === sessionToken ? 
+  //   <NavDropdown title="Member Profile" id="basic-nav-dropdown">
+  //             <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
+  //             {/* <NavDropdown.Divider /> */}
+  //           </NavDropdown>
+  //    : 
+  //    <NavDropdown title="member garden's" id="basic-nav-dropdown">
+  //     <NavDropdown.Item href="/GardenBio">Garden Bio</NavDropdown.Item>
+  //    <NavDropdown.Divider />
+  //    <NavDropdown.Item href="#Profile-Page">
+  //      Profile Page  
+  //    </NavDropdown.Item>
+  //    <NavDropdown.Divider />
+  //  </NavDropdown>
     
-  }
+  // }
 
 
 
@@ -133,24 +145,27 @@ const emailinput = document.getElementById("email-input")
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/MissionPage">mission</Nav.Link>
-            <Nav.Link href="/ModelPage">model</Nav.Link>
+            <Nav.Link href="/MissionPage">Mission</Nav.Link>
+            <Nav.Link href="/ModelPage">Model</Nav.Link>
+            <Nav.Link href="/Accreditation">Accredidations</Nav.Link>
+            {protectedViewsGarden()}
 
-            <NavDropdown title="member gardens" id="basic-nav-dropdown">
+            {/* <NavDropdown title="member gardens" id="basic-nav-dropdown">
               <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="/RegisterRoundTable">
                 register a roundtable 
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
+
               {/* <NavDropdown.Divider /> */}
               {/* <NavDropdown.Item href="#action/3.3">garden accredidations</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 public garden page
               </NavDropdown.Item> */}
-            </NavDropdown>
-            {/* {protectedViews()} */}
-            {protectedViewsMember()}
+            {/* </NavDropdown> */}
+  
+            {/* {protectedViewsMember()} */}
             {protectedViewsLogin()}
 
           </Nav>

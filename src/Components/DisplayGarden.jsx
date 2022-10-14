@@ -1,8 +1,6 @@
 import { Endpoints } from "./endPoints"
 import { useEffect, useState } from "react"
 import ShowGarden from "./ShowGarden"
-import Header from "./Header"
-import Footers from "./Footers"
 
 const DisplayGarden = (props) => {
     const [displayGarden,setDisplayGarden] = useState({gardens:[]})
