@@ -139,8 +139,6 @@ const emailinput = document.getElementById("email-input")
             <NavDropdown title="member gardens" id="basic-nav-dropdown">
               <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/DisplayGarden">display garden</NavDropdown.Item> //! DELETE DISPLAY GARDEN PRIOR TO MERGE
-              <NavDropdown.Divider />
               <NavDropdown.Item href="/RegisterRoundTable">
                 register a roundtable 
               </NavDropdown.Item>
@@ -151,7 +149,7 @@ const emailinput = document.getElementById("email-input")
                 public garden page
               </NavDropdown.Item> */}
             </NavDropdown>
-            {protectedViews()}
+            {/* {protectedViews()} */}
             {protectedViewsMember()}
             {protectedViewsLogin()}
 

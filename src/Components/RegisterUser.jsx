@@ -33,6 +33,7 @@ const RegisterUser = (props) => {
           try {
             const response = await fetch(Endpoints.user.register, requestOptions);
             const data = await response.json();
+            console.log(data)
           } catch (error) {
             console.error(error);
           }

@@ -1,16 +1,16 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom'
-
-import Home from './Components/Home'
-import MissionPage from './Components/MissionPage'
-import ModelPage from './Components/ModelPage'
-import Login from './Components/Login'
-import RegisterGarden from './Components/RegisterGarden'
-import RegisterRoundtable from './Components/RegisterRoundtable'
-import RegisterUser from './Components/RegisterUser'
-import DisplayGarden from './Components/DisplayGarden';
-import Header from './Components/Header';
-import Footers from './Components/Footers';
+import { Route, Routes } from 'react-router-dom';
+import Home from './components/Home';
+import MissionPage from './components/MissionPage';
+import ModelPage from './components/ModelPage';
+import Login from './components/Login';
+import RegisterGarden from './components/RegisterGarden';
+import RegisterRoundtable from './components/RegisterRoundtable';
+import RegisterUser from './components/RegisterUser';
+import DisplayGarden from './components/DisplayGarden';
+import Header from './components/Header';
+import Footers from './components/Footers';
+import GardenBio from './components/GardenBio';
 
 
 function App() {
@@ -28,7 +28,7 @@ function App() {
         <Route path = "/GardenBio" element = {<GardenBio/>} />
         <Route path = "/RegisterRoundtable" element = {<RegisterRoundtable/>} />
         <Route path = "/Login" element = {<Login/>} />
-        <Route path="/RegisterUser" element={<RegisterUser/>}/>
+        <Route path = "/RegisterUser" element={<RegisterUser/>}/>
         <Route path = "*" element = {<div><h2>404 Page Not Found</h2></div>
         } />
   </Routes>
