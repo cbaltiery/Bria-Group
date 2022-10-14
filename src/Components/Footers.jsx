@@ -1,6 +1,7 @@
 import React from 'react';
 import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
 import { Routes, Route, Link } from 'react-router-dom';
+import { success } from "bootstrap"
 
 const Footers = (props) => {
   function Facebook(){
@@ -14,6 +15,7 @@ const Footers = (props) => {
   }
 
     return ( <>
+    <div style={{"backgroundColor":"rgba(255,255,255,0.75)"}}>
     <CDBFooter className="shadow">
       <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
         <CDBBox display="flex" justifyContent="between" className="flex-wrap">
@@ -87,7 +89,7 @@ const Footers = (props) => {
       <Route path="/twitter" element={<Twitter/>}></Route>
       <Route path="/instagram" element={<Instagram/>}></Route>
     </Routes>
-  
+    </div>
 
     </> );
 }

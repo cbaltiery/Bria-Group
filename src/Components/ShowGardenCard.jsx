@@ -1,6 +1,5 @@
 const ShowGardenCard = (props) => {
     let locationArray = Object.entries(props.location)
-    console.log(locationArray)
     return ( 
     <>
     <ul>
