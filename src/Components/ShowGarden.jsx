@@ -10,7 +10,7 @@ const ShowGarden = (props) => {
 return (
     <>
     <Container fluid>
-        <Row>
+        <Row style={{width:1500, alignItems:"center", display:"flex"}}>
             {props.displayGarden?.garden?.map((data,index)=> ( 
             <Col key = {index}>
                 <Card
