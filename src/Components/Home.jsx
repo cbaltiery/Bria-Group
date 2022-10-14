@@ -1,7 +1,5 @@
 import React from 'react';
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
-import Header from './Header';
-import Footers from "./Footers";
+import { Button,} from 'reactstrap';
 import '../App.css'
 
 const Home = (props) => {

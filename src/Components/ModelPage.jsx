@@ -1,6 +1,3 @@
-import Headers from "./Header";
-import Footers from "./Footers";
-
 const ModelPage = (props) => {
     return ( <>
 

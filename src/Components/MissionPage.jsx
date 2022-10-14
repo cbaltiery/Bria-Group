@@ -1,5 +1,3 @@
-import Footers from "./Footers";
-import Headers from "./Header";
 import './missionPage.css'
 
 const MissionPage = (props) => {
