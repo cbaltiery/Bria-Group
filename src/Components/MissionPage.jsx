@@ -4,7 +4,6 @@ import './missionPage.css'
 
 const MissionPage = (props) => {
     return ( <>
-    <Headers/>
         <div className="mission-top">
             <h3 style={{'color' : 'grey'}}>We are in the midst of the sixth largest mass extinction on earth.</h3>
             {/* Image of NYC city scape */}
@@ -75,7 +74,6 @@ const MissionPage = (props) => {
         <p>Subscribe to start your journey with BRIA. It’s free, and you can unsubscribe at any time.</p>
         <input type="text" placeholder="Email*" /><button>Join BRIA</button> */}      
         </div>
-    <Footers/>
     </> );
 }
  

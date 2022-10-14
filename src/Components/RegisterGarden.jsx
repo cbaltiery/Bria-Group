@@ -66,7 +66,6 @@ Input fields for the following:
 An area to upload personal photos of the space. 
 */
     <>
-    <Headers />
     <div className="register">
     <h1> Register your Garden </h1>
     <Form >
@@ -168,7 +167,7 @@ An area to upload personal photos of the space.
         <Button color="secondary" onClick={handleSubmit}>Submit</Button>
     </Form>
     </div>
-    <Footers />
+  
     </> 
     );
 }
