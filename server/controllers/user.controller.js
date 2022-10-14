@@ -1,9 +1,10 @@
-require ("dotenv").config()
+
 const router = require("express").Router();
 const User = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
-const validateSessions = require("../middleware/validate-sessions")
+const validateSessions = require("../middleware/validate-sessions");
+const { response } = require("express");
 
 router.post("/register", async (req, res) => {  //used to be /createuser
     
@@ -12,9 +13,16 @@ router.post("/register", async (req, res) => {  //used to be /createuser
 
     if (!req.body || !username || !email || !password) {
         //if not enough info passed, return error
-        res.status(400).json({ message: "malformrsed registration data sent" }); //400badrequest
+     return res.status(400).json({ message: "malformed registration data sent" }); //400badrequest
     }
     try {
+        const test = await User.findOne({email});
+        console.log(test)
+        if (test){
+            return res.status(400).json({ message: "user already exists"})
+        }
+
+
         //"salting" adds protection
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(password, salt);

@@ -1,5 +1,6 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom'
+
 import Home from './Components/Home'
 import MissionPage from './Components/MissionPage'
 import ModelPage from './Components/ModelPage'
@@ -24,6 +25,7 @@ function App() {
         <Route path = "/ModelPage" element = {<ModelPage/>} />
         <Route path = "/DisplayGarden" element = {<DisplayGarden/>}/>
         <Route path = "/RegisterGarden" element = {<RegisterGarden/>} />
+        <Route path = "/GardenBio" element = {<GardenBio/>} />
         <Route path = "/RegisterRoundtable" element = {<RegisterRoundtable/>} />
         <Route path = "/Login" element = {<Login/>} />
         <Route path="/RegisterUser" element={<RegisterUser/>}/>

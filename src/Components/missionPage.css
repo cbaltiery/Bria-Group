@@ -39,6 +39,7 @@
 }
 #text-side{
     width: 70%;
+    height: 100%;
     background-color: rgba(248, 245, 227, 0.973);
     float: left;
 }
@@ -50,6 +51,7 @@
 }
 .missions{
     width:70%;
+    height: 15.6em;
     background-color: forestgreen;
     float: left;
 }
