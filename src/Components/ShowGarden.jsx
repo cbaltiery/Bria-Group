@@ -1,4 +1,4 @@
-import "../Components/showGarden.css"
+import "./showGarden.css"
 import { React, useEffect } from 'react';
 import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button, Container, Row, Col } from "reactstrap"
 import ShowGardenCard from "./ShowGardenCard";
