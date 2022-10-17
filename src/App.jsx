@@ -3,7 +3,7 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
 import MissionPage from './components/MissionPage';
 import ModelPage from './components/ModelPage';
-import Login from './components/Login';
+import LoginModal from './components/LoginModal';
 import RegisterGarden from './components/RegisterGarden';
 import RegisterRoundtable from './components/RegisterRoundtable';
 import RegisterUser from './components/RegisterUser';
@@ -27,7 +27,7 @@ function App() {
         <Route path = "/RegisterGarden" element = {<RegisterGarden/>} />
         <Route path = "/GardenBio" element = {<GardenBio/>} />
         <Route path = "/RegisterRoundtable" element = {<RegisterRoundtable/>} />
-        <Route path = "/Login" element = {<Login/>} />
+        <Route path = "/Login" element = {<LoginModal/>} />
         <Route path = "/RegisterUser" element={<RegisterUser/>}/>
         <Route path = "*" element = {<div><h2>404 Page Not Found</h2></div>
         } />

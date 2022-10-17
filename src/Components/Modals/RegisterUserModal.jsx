@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Endpoints } from "./endPoints";
 import { useNavigate, Routes, Route, } from "react-router-dom";
+
 const RegisterUser = (props) => {
 
     const navigate = useNavigate()
@@ -43,7 +44,6 @@ const RegisterUser = (props) => {
           try {
             const response = await fetch(Endpoints.user.register, requestOptions);
             const data = await response.json();
-            console.log(data)
           } catch (error) {
             console.error(error);
           }
