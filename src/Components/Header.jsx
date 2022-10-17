@@ -2,13 +2,22 @@ import '../App.css'
 import { useEffect, useState, React } from "react";
 import { Container, Nav, Navbar, NavDropdown, Button, Form, InputGroup } from "react-bootstrap"
 import { Endpoints } from './endPoints';
-
+import LoginModal from "./LoginModal.jsx";
 
 const Header = (props) => {
 
+  // Login Modal State
+  const [modalState, setModalState] = useState(false)
+
   //  establish whether a token is accessed or not
   const [sessionToken, setSessionToken] = useState("")
-  
+  function toggleModal(){
+    setModalState(!modalState)
+  }
+function updateToken(token){
+  setSessionToken(token)
+  localStorage.setItem("token",token)
+}
   useEffect(() => {
     if (localStorage.getItem("token")){
       setSessionToken(localStorage.getItem("token"))
@@ -21,6 +30,13 @@ const Header = (props) => {
     setSessionToken("");
   };
 
+  // Login Modal function
+  function handleClick(){
+    modalState === true
+    ? setModalState (false)
+      : setModalState(true)
+  }
+
   // Toggled between Login and Member profile depending on the presence of a token.
   const protectedViews = () => {
     return localStorage.getItem("token") === sessionToken ?
@@ -31,12 +47,12 @@ const Header = (props) => {
                 Profile Page  
               </NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item onClick={clearToken} href="#Log-Out">
-                LOGOUT  
-              </NavDropdown.Item>
+
+           
             </NavDropdown>
-     : 
-    <Nav.Link href="/Login"><b>LOGIN</b></Nav.Link>
+     : <Button onClick={toggleModal} >Login</Button>
+    // <LoginModal state={modalState} handleClick={handleClick} />
+    
   }
 
     // let activeStyle = {color: "green"}
@@ -130,7 +146,7 @@ const emailinput = document.getElementById("email-input")
     {/* </div> */}
     </div>
     </div>
-    
+    {modalState?<LoginModal toggleModal={toggleModal} updateToken={updateToken}/>:null}
     
     </> );
 }

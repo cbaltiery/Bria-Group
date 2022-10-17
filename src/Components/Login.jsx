@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Routes, Route, } from "react-router-dom";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-import { Endpoints } from '../Components/endPoints';
+import { Endpoints } from './endPoints';
 
 function Login(props) {
   const [email, setEmail] = useState("");
