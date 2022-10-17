@@ -2,7 +2,6 @@ import { FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
 import { useState } from "react";
 import { Endpoints } from "./endPoints";
 import Headers from "./Header";
-import Footers from "./Footers";
 import '../App.css'
 
 const RegisterGarden = (props) => {
@@ -66,13 +65,13 @@ Input fields for the following:
 An area to upload personal photos of the space. 
 */
     <>
-    <Headers />
     <div className="register">
     <h1> Register your Garden </h1>
-    <Form>
+    <Form >
         <FormGroup>
             <Label for="garden-name">Garden Name</Label>
             <Input 
+            style={{'width' : '50%', }}
             type="text" 
             id="garden-name" 
             placeholder="Input Garden Name"
@@ -83,6 +82,7 @@ An area to upload personal photos of the space.
         <FormGroup>
             <Label for="garden-nick-name">Garden Nick Name</Label>
             <Input 
+            style={{'width' : '50%'}}
             type="text" 
             id="garden-nick-name" 
             placeholder="Input Garden Nick Name"
@@ -105,6 +105,7 @@ An area to upload personal photos of the space.
         <FormGroup>
             <Label for="city">City</Label>
             <Input 
+            style={{'width' : '50%'}}
             type="text" 
             id="city" 
             placeholder="Input City"
@@ -114,6 +115,7 @@ An area to upload personal photos of the space.
         <FormGroup>
           <Label for="state">State</Label>
           <Input 
+          style={{'width' : '50%'}}
           type="select" 
           id="state"
           onChange={(e)=>{setState(e.target.value)}}
@@ -127,6 +129,7 @@ An area to upload personal photos of the space.
         <FormGroup>
           <Label for="roundtable">Roundtable</Label>
           <Input 
+          style={{'width' : '50%'}}
           type="select" 
           id="roundtable"
           onChange={(e)=>{setRoundTable(e.target.value)}}
@@ -139,7 +142,8 @@ An area to upload personal photos of the space.
 
         <FormGroup>
             <Label for="square-footage">square-footage</Label>
-            <Input 
+            <Input
+            style={{'width' : '50%'}} 
             type="text" 
             id="square-footage" 
             placeholder="Input square-footage"
@@ -153,16 +157,16 @@ An area to upload personal photos of the space.
 
         <FormGroup>
           <Label for="garden-photo">Upload Garden Photo</Label>
-          <Input type="file" id="garden-photo" />
-          <FormText color="muted">
-            Upload a picture of your greenspace.
+          <Input style={{'width' : '50%'}} type="file" id="garden-photo" />
+          <FormText color="black">
+            <b>Upload a picture of your greenspace.</b>
           </FormText>
         </FormGroup>
 
-        <Button onClick={handleSubmit}>Submit</Button>
+        <Button color="secondary" onClick={handleSubmit}>Submit</Button>
     </Form>
     </div>
-    <Footers />
+  
     </> 
     );
 }

@@ -1,6 +1,6 @@
 .header{
     height: 8em;
-    background-color: grey;
+    background-color: rgb(128, 128, 128);
 }
 .left-header{
     width: 50%;
@@ -72,6 +72,11 @@
     background-size: contain;
 }
 .register{
-    background-color: forestgreen;
+    background-color: rgb(34, 139, 34);
+    
 }
 
+#alert-box{
+    text-align: center;
+    width: 36em
+}

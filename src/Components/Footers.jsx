@@ -1,9 +1,21 @@
 import React from 'react';
 import { CDBFooter, CDBFooterLink, CDBBox, CDBBtn, CDBIcon } from 'cdbreact';
+import { Routes, Route, Link } from 'react-router-dom';
+import { success } from "bootstrap"
 
 const Footers = (props) => {
+  function Facebook(){
+    window.location.replace("http://www.facebook.com")
+  }
+  function Twitter(){
+    window.location.replace("http://www.twitter.com")
+  }
+  function Instagram(){
+    window.location.replace("http://www.instagram.com")
+  }
+
     return ( <>
-    
+    <div style={{"backgroundColor":"rgba(255,255,255,0.75)"}}>
     <CDBFooter className="shadow">
       <CDBBox display="flex" flex="column" className="mx-auto py-5" style={{ width: '90%' }}>
         <CDBBox display="flex" justifyContent="between" className="flex-wrap">
@@ -17,15 +29,21 @@ const Footers = (props) => {
             </p>
             
             <CDBBox display="flex" className="mt-4">
-              <CDBBtn flat color="dark">
-                <CDBIcon fab icon="facebook-f" />
-              </CDBBtn>
-              <CDBBtn flat color="dark" className="mx-3">
-                <CDBIcon fab icon="twitter" />
-              </CDBBtn>
-              <CDBBtn flat color="dark" className="p-2">
-                <CDBIcon fab icon="instagram" />
-              </CDBBtn>
+                <Link to="/facebook"> 
+                  <CDBBtn flat color="dark">
+                    <CDBIcon fab icon="facebook-f" />
+                  </CDBBtn>
+                </Link>
+                <Link to ="/twitter">
+                  <CDBBtn flat color="dark" className="mx-3">
+                    <CDBIcon fab icon="twitter" />
+                  </CDBBtn>
+                </Link>
+                <Link to = "/instagram">
+                  <CDBBtn flat color="dark" className="p-2">
+                    <CDBIcon fab icon="instagram" />
+                  </CDBBtn>
+                </Link>
             </CDBBox>
           </CDBBox>
           <CDBBox>
@@ -45,8 +63,8 @@ const Footers = (props) => {
             </p>
             <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
               <CDBFooterLink href="/">Support</CDBFooterLink>
-              <CDBFooterLink href="/">Sign Up</CDBFooterLink>
-              <CDBFooterLink href="/">Log In</CDBFooterLink>
+              <CDBFooterLink href="/RegisterUser">Sign Up</CDBFooterLink>
+              <CDBFooterLink href="/Login">Log In</CDBFooterLink>
               <CDBFooterLink href="/">Careers</CDBFooterLink>
             </CDBBox>
           </CDBBox>
@@ -55,9 +73,9 @@ const Footers = (props) => {
               Membership
             </p>
             <CDBBox flex="column" style={{ cursor: 'pointer', padding: '0' }}>
-              <CDBFooterLink href="/">Gardens</CDBFooterLink>
+              <CDBFooterLink href="/GardenBio">Gardens</CDBFooterLink>
               <CDBFooterLink href="/">Roundtables</CDBFooterLink>
-              <CDBFooterLink href="/">Accredidations</CDBFooterLink>
+              <CDBFooterLink href="/Accrediation">Accredidations</CDBFooterLink>
               <CDBFooterLink href="/">Contributions</CDBFooterLink>
             </CDBBox>
           </CDBBox>
@@ -65,7 +83,13 @@ const Footers = (props) => {
         <small className="text-center mt-5">&copy;Botanical Research Institutes of America, Inc., 2093 Philadelphia Pike #7321, Claymont, DE 19703   (302) 409-5630</small>
       </CDBBox>
     </CDBFooter>
-  
+
+    <Routes>
+      <Route path="/facebook" element={<Facebook/>}></Route>
+      <Route path="/twitter" element={<Twitter/>}></Route>
+      <Route path="/instagram" element={<Instagram/>}></Route>
+    </Routes>
+    </div>
 
     </> );
 }

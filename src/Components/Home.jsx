@@ -1,12 +1,9 @@
 import React from 'react';
-import { Card, Button, CardTitle, CardText } from 'reactstrap';
-import Header from './Header';
-import Footers from "./Footers";
+import { Button,} from 'reactstrap';
 import '../App.css'
 
 const Home = (props) => {
     return ( <>
-    <Header />
     <div className="top">
         <div id="upper-top">
     <h1>Join BRIA, and help save life on earth.</h1>
@@ -60,7 +57,6 @@ const Home = (props) => {
     <div className="box1">
     <div id="box1">Roundtable Box</div>
     </div>
-    <Footers />
     </> );
 }
  
