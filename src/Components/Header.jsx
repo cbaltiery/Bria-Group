@@ -42,48 +42,6 @@ const Header = (props) => {
     modalState === true ? setModalState(false) : setModalState(true);
   }
 
-<<<<<<< HEAD
-  const protectedViewsMember = () => {
-    return localStorage.getItem("token") === sessionToken ?
-    <NavDropdown title="Member Profile" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
-              {/* <NavDropdown.Divider /> */}
-            </NavDropdown>
-     : 
-     <NavDropdown title="member garden's" id="basic-nav-dropdown">
-      <NavDropdown.Item href="/GardenBio">Garden Bio</NavDropdown.Item>
-      <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
-     {/* <NavDropdown.Divider /> */}
-     {/* <NavDropdown.Item href="#Profile-Page">
-       Profile Page  
-     </NavDropdown.Item> */}
-     {/* <NavDropdown.Divider /> */}
-   </NavDropdown>
-    
-  }
-
-
-    // let activeStyle = {color: "green"}
-    // let inActiveStyle = {textDecoration: "none"}
-
-
-// ------------- Email Sign up -------------- \\
-
-
-const [email, setEmail] = useState ("")
-const emailinput = document.getElementById("email-input")
-
-    async function handleClick(e){
-      e.preventDefault();
-      emailinput.value = ("")
-
-      let bodyObject = JSON.stringify(
-        {
-          email:{
-            email:email,
-          }
-        })
-=======
   // Toggled between Login and Member profile depending on the presence of a token.
   const protectedViewsLogin = () => {
     return localStorage.getItem("token") === sessionToken ? (
@@ -111,7 +69,6 @@ const emailinput = document.getElementById("email-input")
     );
     // <LoginModal state={modalState} handleClick={handleClick} />
   };
->>>>>>> a7dcfad16b6c0c37355cca1d1268b7b31537dc1f
 
   const protectedViewsGarden = () => {
     return localStorage.getItem("token") === sessionToken ? (
