@@ -7,19 +7,6 @@ import ShowGardenCard from "./ShowGardenCard";
 
 const ShowGarden = (props) => {
     
-    // // Concept Idea on how to display additional gardens upon click
-    // let itemsDisplayed = 0
-    // const displayNextFour = () => {
-    //     console.log("click")
-    //     props.displayGarden?.garden?.slice(itemsDisplayed, itemsDisplayed + 4);
-    //     // Display next 4 items until their amount exceeds 
-    //     // the array length 
-    //     if (!(itemsDisplayed + 4 > props.displayGarden?.garden?.length)) 
-    //         itemsDisplayed += 4;
-    //     }
-    
-   
-    
 return (
     <>
     <div className="garden-display-background">
@@ -33,7 +20,6 @@ return (
                 color="success"
                 style={{
                     width: '25rem'
-                    
                 }}
                 >
                 <img

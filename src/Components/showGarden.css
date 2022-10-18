@@ -17,6 +17,7 @@
     background-color: rgb(0, 139, 139, 0.5);
     padding:1em;
     text-align: center;
+    max-width: fit-content;
 }
 
 #garden-display-container{

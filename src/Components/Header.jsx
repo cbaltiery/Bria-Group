@@ -47,8 +47,8 @@ const Header = (props) => {
 
   const protectedViewsGarden = () => {
     return localStorage.getItem("token") === sessionToken ?
-      <Nav.Link href="/DisplayGarden">Gardens</Nav.Link> 
-    : <Nav.Link href="/GardenBio">Gardens</Nav.Link> 
+      <Nav.Link href="/DisplayGarden" className='navbutton gardens'>Gardens</Nav.Link> 
+    : <Nav.Link href="/GardenBio" className='navbutton gardenbio'>Gardens</Nav.Link> 
 }
 
 
@@ -129,6 +129,7 @@ const emailinput = document.getElementById("email-input")
         error.error(error)
       }
     }
+
     return ( <>
     <div className="header">
     <div className="left-header">
@@ -141,13 +142,13 @@ const emailinput = document.getElementById("email-input")
         <div className="navbar">
     <Navbar bg="success" size="lg">
       <Container>
-        <Navbar.Brand href="/home">bria</Navbar.Brand>
+        <Navbar.Brand href="/home" className='navbutton home'>bria</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/MissionPage">Mission</Nav.Link>
-            <Nav.Link href="/ModelPage">Model</Nav.Link>
-            <Nav.Link href="/Accreditation">Accredidations</Nav.Link>
+            <Nav.Link href="/MissionPage" className='navbutton missionpage'>Mission</Nav.Link>
+            <Nav.Link href="/ModelPage" className='navbutton modelpage'>Model</Nav.Link>
+            <Nav.Link href="/Accreditation" className='navbutton accredidations'>Accredidations</Nav.Link>
             {protectedViewsGarden()}
 
             {/* <NavDropdown title="member gardens" id="basic-nav-dropdown">

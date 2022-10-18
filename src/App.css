@@ -80,3 +80,7 @@
     text-align: center;
     width: 36em
 }
+
+  .navbutton:hover{
+    transform: scale(1.1);
+  }
