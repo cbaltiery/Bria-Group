@@ -1,14 +1,10 @@
 import React from 'react';
 import { Button } from 'reactstrap';
 import {Nav} from "react-bootstrap";
-import Header from './Header';
-import Footers from "./Footers";
 import '../App.css'
 
 const GardenBio = (props) => {
     return ( <>
-    
-    <Header />
     <div className="top">
         <div id="upper-top">
     <h1>Transform your yard into a botanical research garden.</h1>
@@ -55,8 +51,6 @@ const GardenBio = (props) => {
             <h2 style={{'color' : 'white', 'marginLeft' : '3em', 'marginTop' : '1em'}}><Nav.Link href="/Login">Please <b style={{'color' : 'olive'}}>login or create a new account</b> to register a new garden.</Nav.Link></h2>
         </div>
         </div>
-    <Footers />
-    
     </> );
 }
  

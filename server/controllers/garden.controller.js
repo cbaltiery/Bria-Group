@@ -14,7 +14,7 @@ router.post("/create", validateSessions, async (req, res) => {
     }    
 
     const newGarden = new Garden({
-        gardenNamae,
+        gardenName,
         city,
         state,
         email,
