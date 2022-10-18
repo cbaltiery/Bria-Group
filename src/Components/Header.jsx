@@ -12,10 +12,12 @@ import {
 } from "react-bootstrap";
 import { Endpoints } from "./endPoints";
 import LoginModal from "./LoginModal.jsx";
+import "./header.css"
 
 const Header = (props) => {
   //  establish whether a token is accessed or not
   const [sessionToken, setSessionToken] = useState("");
+  const [modalState, setModalState] = useState(false);
   function toggleModal() {
     setModalState(!modalState);
   }
