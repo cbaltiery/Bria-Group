@@ -59,7 +59,7 @@ function LoginModal(props) {
 
   return (
     <>
-      <Modal show={true} onHide={props.handleClose}>
+      <Modal show={true} onHide={props.toggleModal}>
         <Modal.Header closeButton>
           <Modal.Title>Log In</Modal.Title>
         </Modal.Header>
@@ -94,11 +94,7 @@ function LoginModal(props) {
             <button onClick={navigateToRegisterUser}>Sign Up!</button>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
+        
       </Modal>
     </>
   );
