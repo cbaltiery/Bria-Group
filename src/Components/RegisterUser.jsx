@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Endpoints } from "./endPoints";
 import { useNavigate, Routes, Route, } from "react-router-dom";
-import "./registerUser.css"
-
+import "../App.css";
 const RegisterUser = (props) => {
 
     const navigate = useNavigate()
@@ -53,8 +52,8 @@ const RegisterUser = (props) => {
 
     return ( <>
     <div>
-        <h1>Register </h1>
-        <Form onSubmit={handleSubmit}>
+        <h1 id="reg-header" >Register </h1>
+        <Form id="reg-form" onSubmit={handleSubmit}>
 
              <FormGroup>
                 <Label htmlFor="username">Username</Label>
