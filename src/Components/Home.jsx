@@ -21,15 +21,6 @@ const Home = (props) => {
         <Button color="success">Join BRIA. It's free!</Button>{' '}
         </div>
     </div>
-    {/* <div className="middle">
-        <div className="card">
-    <Card style = {{'height' : '500px'}} body inverse color="success">
-        <CardTitle style={{'textAlign': 'center'}}><h1>Turn your backyard into a BRIA Botanical Research Garden.</h1></CardTitle>
-        <CardText><h3>Our gardens are where we relax and unwind, express our creativity, and bond with nature. And now, they’re where we help save life on earth. Backyard, school yard, church yard, corporate park…any property can become a certified BRIA Botanical Research Garden.  Start small, then grow with BRIA.</h3></CardText>
-        <Button style = {{'marginTop' : '70px', 'width' : '250px'}} color="secondary">Learn More</Button>
-      </Card>
-      </div>
-    </div> */}
     <div className="box1">
         <div id="box1">Garden Box</div>
     </div>

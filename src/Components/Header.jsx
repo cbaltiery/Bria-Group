@@ -48,6 +48,7 @@ const Header = (props) => {
      : 
      <NavDropdown title="member garden's" id="basic-nav-dropdown">
       <NavDropdown.Item href="/GardenBio">Garden Bio</NavDropdown.Item>
+      <NavDropdown.Item href="/RegisterGarden">register a garden</NavDropdown.Item>
      {/* <NavDropdown.Divider /> */}
      {/* <NavDropdown.Item href="#Profile-Page">
        Profile Page  
