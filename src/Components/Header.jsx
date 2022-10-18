@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 import { Endpoints } from "./endPoints";
 import LoginModal from "./LoginModal.jsx";
-import "./header.css"
+import { redirect } from "react-router-dom";
 
 const Header = (props) => {
   //  establish whether a token is accessed or not
@@ -65,7 +65,7 @@ const Header = (props) => {
         </NavDropdown.Item>
       </NavDropdown>
     ) : (
-      <Button onClick={toggleModal}>Login</Button>
+      <Button id="login-button" onClick={toggleModal}>Login</Button>
     );
     // <LoginModal state={modalState} handleClick={handleClick} />
   };
