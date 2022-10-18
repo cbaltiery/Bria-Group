@@ -72,9 +72,9 @@ const Header = (props) => {
 
   const protectedViewsGarden = () => {
     return localStorage.getItem("token") === sessionToken ? (
-      <Nav.Link href="/DisplayGarden">Gardens</Nav.Link>
+      <Nav.Link href="/DisplayGarden" className="nav-button">Gardens</Nav.Link>
     ) : (
-      <Nav.Link href="/GardenBio">Gardens</Nav.Link>
+      <Nav.Link href="/GardenBio" className="nav-button">Gardens</Nav.Link>
     );
   };
 
@@ -172,13 +172,13 @@ const Header = (props) => {
           <div className="navbar">
             <Navbar bg="success" size="lg">
               <Container>
-                <Navbar.Brand href="/home">bria</Navbar.Brand>
+                <Navbar.Brand href="/home" className="nav-button">bria</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="me-auto">
-                    <Nav.Link href="/MissionPage">Mission</Nav.Link>
-                    <Nav.Link href="/ModelPage">Model</Nav.Link>
-                    <Nav.Link href="/Accreditation">Accredidations</Nav.Link>
+                    <Nav.Link href="/MissionPage" className="nav-button">Mission</Nav.Link>
+                    <Nav.Link href="/ModelPage" className="nav-button">Model</Nav.Link>
+                    <Nav.Link href="/Accreditation" className="nav-button">Accredidations</Nav.Link>
                     {protectedViewsGarden()}
 
                     {/* <NavDropdown title="member gardens" id="basic-nav-dropdown">
