@@ -1,16 +1,12 @@
-<<<<<<< HEAD
 import React from 'react';
 import Headers from "./Header";
 import Footers from "./Footers";
 import '../App.css'
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 
-=======
->>>>>>> a7dcfad16b6c0c37355cca1d1268b7b31537dc1f
 const ModelPage = (props) => {
     return ( <>
-
-    <div className="top">
+    <div className="top" style={{'backgroundColor' : 'burlywood'}}>
         <div id="upper-top">
     <h1 style={{'marginBottom' : '3em'}}>Explore the BRIA model.</h1>
         </div>
@@ -64,7 +60,7 @@ const ModelPage = (props) => {
 
       </div>
 
-      <div className="bottom">
+      <div className="bottom" style={{'backgroundColor' : 'rgba(248, 245, 227, 0.973)'}}>
         <div id="upper-bottom">
     <h1 style={{'color' : 'white', 'fontSize' : '10em', 'textAlign': 'left'}}><b>bria</b></h1>
         </div>
@@ -180,7 +176,7 @@ const ModelPage = (props) => {
   </div>
 </div>
     </div>
-    <div className="top">
+    <div className="top"  style={{'backgroundColor' : 'burlywood'}}>
 
   <div class="col-sm-6">
     <div class="card" style={{'backgroundColor' : 'rgba(248, 245, 227, 0.973)', 'opacity' : '0.5', 'width': '700px'}}>
@@ -257,7 +253,7 @@ const ModelPage = (props) => {
     <p><b>OPERATING PRINCIPLES</b></p>
 </div>
 
-<div className="bottom">
+<div className="bottom"  style={{'backgroundColor' : 'burlywood'}}>
       <div class="row">
         <div class="col-4">
           <div class="card" style={{'backgroundColor' : 'rgb(3, 73, 3)', 'color' : 'white', 'width' : '19em'}}>
@@ -353,7 +349,6 @@ const ModelPage = (props) => {
         <h3 style={{'marginBottom': '2em'}}>Rapidly Evolving</h3>
 <p>Innovate. Test. Iterate. A/B testing isn't just for emails.</p>
 <p>Scalable solutions are found when parellel prototyping and knowledge sharing is the norm in every facet of operations.</p>
-<<<<<<< HEAD
 </p>
       </div>
     </div>
@@ -361,11 +356,6 @@ const ModelPage = (props) => {
 </div>
     </div>
         
-    <Footers/>
-=======
-
-{/* The above will be part V */}
->>>>>>> a7dcfad16b6c0c37355cca1d1268b7b31537dc1f
     </> );
 }
  

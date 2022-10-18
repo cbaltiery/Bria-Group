@@ -23,21 +23,6 @@ const Home = (props) => {
         </div>
         </div>
         </div>
-<<<<<<< HEAD
-        <div id="button-top">
-        <Button color="success">Join BRIA. It's free!</Button>{' '}
-        </div>
-    </div>
-    <div className="box1">
-        <div id="box1">Garden Box</div>
-    </div>
-    <div className="box2">
-    <div id="box2">Roundtable Box</div>
-    </div>
-    <div className="bottom">
-        <div id="upper-bottom">
-    <h2 style={{'marginLeft': '2em', 'color' : 'olive'}}><b>Values</b></h2>
-=======
     {/* <div className="middle">
         <div className="card">
     <Card style = {{'height' : '500px'}} body inverse color="success">
@@ -49,7 +34,6 @@ const Home = (props) => {
     </div> */}
         <div className="box1">
             <div className='picturebox p1' style={{'box-shadow': '5px 5px 25px black'}}></div>
->>>>>>> a7dcfad16b6c0c37355cca1d1268b7b31537dc1f
         </div>
         <div className="box2">
             <div className='picturebox p2' style={{'box-shadow': '5px 5px 25px black'}}></div>
