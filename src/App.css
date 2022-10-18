@@ -103,6 +103,13 @@
     background-color: rgb(34, 139, 34);
     
 }
+.operating-principles{
+    text-align: center;
+    background-color: rgb(67, 67, 67);
+    background-color: rgb(196, 194, 194);
+    color :white;
+    padding: 100px
+}
 
 #alert-box{
     text-align: center;
