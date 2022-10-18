@@ -80,3 +80,17 @@
     text-align: center;
     width: 36em
 }
+
+#login-button{
+    background-color:green ;
+    border-style: none;
+    color: black;
+}
+
+#reg-form{
+   background-color: olivedrab
+}
+#reg-header{
+    background-color: olive;
+    margin-bottom: 0%;
+}
