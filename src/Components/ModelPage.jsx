@@ -13,9 +13,9 @@ const ModelPage = (props) => {
 
       <div class="row">
   <div class="col-sm-6">
-    <div class="card" style={{'backgroundColor' : 'grey', 'opacity' : '0.5'}}>
+    <div class="card" style={{'backgroundColor' : 'grey', 'opacity' : '0.5', 'width' : '500px'}}>
       <div class="card-body">
-        <h5 class="card-title" style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '35%'}}>FRAMEWORK</h5>
+        <h5 class="card-title" style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '28%'}}>FRAMEWORK</h5>
         <p class="card-text" style={{'color' : 'white'}}> 
 
         <ul style={{'listStyleType' : 'square', 'marginTop' : '2em', 'marginBottom' : '2em'}}><b>
@@ -25,14 +25,14 @@ const ModelPage = (props) => {
     <li>BRIA Institutes</li></b>
         </ul>
 
-   <h5 style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '55%'}}>OPERATING SYSTEMS</h5>
+   <h5 style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '45%'}}>OPERATING SYSTEMS</h5>
         <ul style={{'listStyleType' : 'circle', 'marginTop' : '2em', 'marginBottom' : '2em'}}><b>
     <li>Accreditation</li>
     <li>Governance</li>
     <li>Funding</li></b>
         </ul>
 
-<h5 style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '60%'}}>OPERATING PRINCIPLES</h5>
+<h5 style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '50%'}}>OPERATING PRINCIPLES</h5>
         <ul style={{'marginTop' : '2em'}}><b>
     <li>Value Centered</li>
     <li>Hyperlocal</li>
@@ -42,7 +42,7 @@ const ModelPage = (props) => {
     </div>
   </div>
   <div class="col-sm-6 " >
-    <div class="card" style={{'backgroundColor' : 'grey', 'opacity' : '0.5'}}>
+    <div class="card" style={{'backgroundColor' : 'grey', 'opacity' : '0.5', 'width' : '400px'}}>
       <div class="card-body">
         <h5 class="card-title" style={{'color' : 'white', 'backgroundColor' : 'green', 'width' : '83%'}}>SYSTEMS & PRINCIPLES AT WORK</h5>
         <p class="card-text"> 
@@ -87,7 +87,7 @@ const ModelPage = (props) => {
 
   <div class="row">
   <div class="col-sm-6">
-    <div class="card" style={{'backgroundColor' : 'white'}}>
+    <div class="card" style={{'backgroundColor' : 'white', 'width' : '500px'}}>
       <div class="card-body">
         <h5 class="card-title" style={{'color' : 'olive'}}>BRIA Naturlaists</h5>
         <hr />
@@ -109,7 +109,7 @@ const ModelPage = (props) => {
     </div>
   </div>
   <div class="col-sm-6 " >
-    <div class="card" style={{'backgroundColor' : 'white'}}>
+    <div class="card" style={{'backgroundColor' : 'white', 'width' : '500px'}}>
       <div class="card-body">
       <h5 class="card-title" style={{'color' : 'olive'}}>BRIA Gardens</h5>
         <hr />
@@ -130,7 +130,7 @@ const ModelPage = (props) => {
 
 <div class="row" style={{'marginTop': '5em'}}>
   <div class="col-sm-6">
-    <div class="card" style={{'backgroundColor' : 'white'}}>
+    <div class="card" style={{'backgroundColor' : 'white', 'width' : '500px'}}>
       <div class="card-body">
         <h5 class="card-title" style={{'color' : 'olive'}}>BRIA Rountables</h5>
         <hr />
@@ -151,7 +151,7 @@ const ModelPage = (props) => {
     </div>
   </div>
   <div class="col-sm-6 " >
-    <div class="card" style={{'backgroundColor' : 'white'}}>
+    <div class="card" style={{'backgroundColor' : 'white', 'width' : '500px'}}>
       <div class="card-body">
       <h5 class="card-title" style={{'color' : 'olive'}}>BRIA Institutes</h5>
         <hr />
@@ -287,7 +287,7 @@ const ModelPage = (props) => {
 
   <div class="row">
   <div class="col-sm-6">
-    <div class="card" style={{'backgroundColor' : 'rgba(248, 245, 227, 0.973)'}}>
+    <div class="card" style={{'backgroundColor' : 'rgba(248, 245, 227, 0.973)', 'width' : '500px'}}>
       <div class="card-body">
         <h7 class="card-title" style={{'color' : 'olive', 'marginTop': '2em'}}>OPERATING PRINCIPLES</h7>
         <p class="card-text" style={{'color' : 'olive'}}> 
@@ -304,7 +304,7 @@ const ModelPage = (props) => {
     </div>
   </div>
   <div class="col-sm-6 " >
-    <div class="card" style={{'backgroundColor' : 'rgb(4, 4, 107)', 'marginTop' : '15em'}}>
+    <div class="card" style={{'backgroundColor' : 'rgb(4, 4, 107)', 'marginTop' : '15em', 'width' : '400px'}}>
       <div class="card-body">
       <h7 class="card-title" style={{'color' : 'white', 'marginTop': '2em'}}>OPERATING PRINCIPLES</h7>
         <p class="card-text" style={{'color' : 'white'}}> 
@@ -323,7 +323,7 @@ const ModelPage = (props) => {
 
 <div class="row" style={{'marginTop': '5em'}}>
   <div class="col-sm-6">
-    <div class="card" style={{'backgroundColor' : 'rgba(248, 245, 227, 0.973)'}}>
+    <div class="card" style={{'backgroundColor' : 'rgba(248, 245, 227, 0.973)', 'width' : '500px'}}>
       <div class="card-body">
         <h7 class="card-title" style={{'color' : 'olive', 'marginTop': '2em'}}>OPERATING PRINCIPLES</h7>
         <p class="card-text" style={{'color' : 'olive'}}> 
@@ -342,7 +342,7 @@ const ModelPage = (props) => {
     </div>
   </div>
   <div class="col-sm-6 " >
-    <div class="card" style={{'backgroundColor' : 'rgb(4, 4, 107)', 'marginTop' : '25em'}}>
+    <div class="card" style={{'backgroundColor' : 'rgb(4, 4, 107)', 'marginTop' : '25em', 'width' : '400px'}}>
       <div class="card-body">
       <h7 class="card-title" style={{'color' : 'white', 'marginTop': '2em'}}>OPERATING PRINCIPLES</h7>
         <p class="card-text" style={{'color' : 'white'}}> 
