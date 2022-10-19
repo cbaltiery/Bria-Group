@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { Endpoints } from "./endPoints";
 import { useNavigate, Routes, Route, } from "react-router-dom";
-import "../App.css";
+
 const RegisterUser = (props) => {
 
     const navigate = useNavigate()
@@ -44,7 +44,6 @@ const RegisterUser = (props) => {
           try {
             const response = await fetch(Endpoints.user.register, requestOptions);
             const data = await response.json();
-            console.log(data)
           } catch (error) {
             console.error(error);
           }
@@ -52,8 +51,8 @@ const RegisterUser = (props) => {
 
     return ( <>
     <div>
-        <h1 id="reg-header" >Register </h1>
-        <Form id="reg-form" onSubmit={handleSubmit}>
+        <h1>Register </h1>
+        <Form onSubmit={handleSubmit}>
 
              <FormGroup>
                 <Label htmlFor="username">Username</Label>

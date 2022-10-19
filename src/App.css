@@ -1,6 +1,6 @@
 .header{
     height: 8em;
-    background-color: grey;
+    background-color: rgb(128, 128, 128);
 }
 .left-header{
     width: 50%;
@@ -21,57 +21,127 @@
 .top{
     flex: 80%;
     padding : 200px;
-    background-color: burlywood;
- /* background-image: url('./components/images/nyc.jpeg'); */
+    /* background-color: burlywood; */
+    width: auto;
     background-repeat: no-repeat;
     background-size: contain;
 }
 
-#box1{
+.picturebox{
     height: 10em;
     width: 20em;
     padding: 15em;
     border: 2px solid black;
-    background-color: green;
     text-align: center;
     display: inline-block;
     margin-top: 2em;
+    border-radius: 15px; 
+}
+.picturebox:hover{
+    cursor: pointer;
 }
 
-#box2{
-    height: 10em;
-    width: 20em;
-    padding: 15em;
-    border: 2px solid black;
-    background-color: olivedrab;
-    text-align: center;
-    display: inline-block;
-    margin-top: 2em;
-    
+.picturebox:active{
+    transform: translateY(3px);
+    box-shadow: inset 1px 1px 15px black;
 }
+
+.p1{
+    background-image: url(../src/assets/Small\ Garden\ Photo1\ -\ Front\ Page.jpg);
+}
+.p2{
+    background-image: url(../src/assets/Small\ Garden\ Photo2\ -\ Front\ Page.jpg);
+}
+.p3{
+    background-image: url(../src/assets/Garden\ RoundTable\ Photo1\ -\ Front\ Page.jpg);
+}
+.p4{
+    background-image: url(../src/assets/Garden\ RoundTable\ Photo2\ -\ Front\ Page.jpg);
+}
+
+
 .box1{
-    background-color: rgb(66, 65, 65);
+    background-image:linear-gradient(180deg, #cdd9eed5, #c7e4c8, #60d36bc2,#48d7568a, #bce8c0c2, #82a9f0d5);  
     width: 50%;
     height:35em;
     float: left;
     text-align: center;
 }
 .box2{
-    background-color: rgb(66, 65, 65);
+    background-image:linear-gradient(180deg, #cdd9eed5, #c7e4c8, #60d36bc2,#48d7568a, #bce8c0c2, #82a9f0d5); 
     width:50%;
     height:35em;
     float:right;
     text-align: center;
 }
+
+.box3{
+    background-image:linear-gradient(180deg, #c3c86cd6, #a4d987d6,  #97c6c4d6,  #c5d2d7d6, #ffffff);  
+    width: 50%;
+    height:35em;
+    float: left;
+    text-align: center;
+}
+.box4{
+    background-image:linear-gradient(180deg, #c3c86cd6, #a4d987d6,  #97c6c4d6,  #c5d2d7d6, #ffffff);   
+    width:50%;
+    height:35em;
+    float:right;
+    text-align: center;
+}
+
+
 .bottom{
     flex: 80%;
     padding : 200px;
-    background-color: rgba(248, 245, 227, 0.973);
+    /* background-color: rgba(248, 245, 227, 0.973); */
  /* background-image: url('./components/images/nyc.jpeg'); */
     background-repeat: no-repeat;
     background-size: contain;
 }
 .register{
-    background-color: forestgreen;
+    background-color: rgb(34, 139, 34);
+    
+}
+.operating-principles{
+    text-align: center;
+    background-color: rgb(67, 67, 67);
+    color :white;
+    padding: 100px
+}
+
+#alert-box{
+    text-align: center;
+    width: 36em
+}
+
+/* Provides hover animation for navBar within header */
+.nav-button:hover{
+    transform: scale(1.1);
+}
+/* photo that appears on the home page */
+.top-photo{
+    background-image: url(../src/assets/GardenPhoto\ -\ Front\ Page1.jpg) ;
+}
+/* provides a color effect over the home page photo */
+.top-photo-haze{
+    background-color: rgba(187, 187, 155, 0.335);
+}
+.bottom-photo-haze{
+    background-color: rgba(122, 133, 170, 0.335);
+}
+
+#login-button{
+    background-color:green ;
+    border-style: none;
+    color: black;
+}
+
+#reg-form{
+   background-color: olivedrab
+}
+#reg-header{
+    background-color: olive;
+    margin-bottom: 0%;
 }
 

@@ -1,10 +1,7 @@
-import Footers from "./Footers";
-import Headers from "./Header";
 import './missionPage.css'
 
 const MissionPage = (props) => {
     return ( <>
-    <Headers/>
         <div className="mission-top">
             <h3 style={{'color' : 'grey'}}>We are in the midst of the sixth largest mass extinction on earth.</h3>
             {/* Image of NYC city scape */}
@@ -35,7 +32,7 @@ const MissionPage = (props) => {
     {/* forest green background */}
     </div>
     {/* nature lady photo scrolls left while you scroll down */}
-    <div className="vision" style={{'color' : 'olive'}}>
+    <div className="vision" style={{'color' : 'olive', 'height' : '282px'}}>
         <div id="text-side">
     {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>VISION</h5> 
     {/* text takes 2/3 page with white background / 1/3 page light grey with faint photo */}
@@ -43,10 +40,11 @@ const MissionPage = (props) => {
     <p>By the year 2050, the story of the Anthropocene Epoch will have evolved from earth’s greatest tragedy into humanity’s greatest triumph. As we successfully reimagine what it means to live on a thriving planet, Americans will be at the forefront of the groundbreaking cultural and physical change necessary to bring an end to global mass extinction.</p>
 
     <p style={{'marginTop' : '20px'}}>The Botanical Research Institutes of America will serve in this effort by bringing our emerging community the tools, knowledge, and inspiration they need to help save life on earth.</p>
+    
     </div>
-    <div id="logo-side" style={{'color' : 'white', 'textAlign' : 'center'}}>pic</div>
+    <div id="logo-side" style={{'color' : 'white', 'textAlign' : 'center', 'height' : '282px'}}>pic</div>
     </div>
-    <div className="missions" style={{'color' : 'white'}}>
+    <div className="missions" style={{'color' : 'white', 'height' : '282px'}}>
 {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>MISSION</h5>
 {/* text takes 2/3 page with dark forest green background / 1/3 page light green with faint photo */}
         <h3>Bring world class conservation botany to every city and town in America.</h3>
@@ -55,8 +53,8 @@ const MissionPage = (props) => {
         <p style={{'marginTop' : '20px'}}>We’re calling on students…and students of life. Gardeners with green thumbs, and anyone who’s ever felt guilty for forgetting to water the plant on their windowsill. Influencers and introverts. Do you know the seven types of trees in minecraft? You. We’re calling on you</p>
         <h6><b>Let's rescue the biosphere</b></h6>
         </div>
-        <div id="logo-side" style={{'color' : 'green', 'textAlign' : 'center', 'backgroundColor' : 'white', 'height' : '250px'}}>pic</div>
-        <div className="values" style={{'color' : 'olive'}}>
+        <div id="logo-side" style={{'color' : 'green', 'textAlign' : 'center', 'backgroundColor' : 'white', 'height' : '282px'}}>pic</div>
+        <div className="values" style={{'color' : 'olive', 'height' : '318px'}}>
         {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>VALUES</h5>
 {/* text takes 2/3 page with white background / 1/3 page light grey with faint photo */}
         <h3>We believe that there is no greater legacy to leave our children than earth's biodiversity, intact.</h3>
@@ -66,7 +64,7 @@ const MissionPage = (props) => {
 
         <p style={{'marginTop' : '20px'}}>We believe that the audacious goal of saving life on earth must be matched by audacious innovation. <b>Experimentation and creativity are our lifeblood.</b></p>
         </div>
-        <div id="logo-side" style={{'height' : '307px', 'textAlign' : 'center', 'color' : 'white'}}>pic</div>
+        <div id="logo-side" style={{'height' : '318px', 'textAlign' : 'center', 'color' : 'white'}}>pic</div>
         {/* background photo of scientist looking at plants */}
         {/* the following in small black box on right side of screen */}
         <div className="join">
@@ -74,7 +72,6 @@ const MissionPage = (props) => {
         <p>Subscribe to start your journey with BRIA. It’s free, and you can unsubscribe at any time.</p>
         <input type="text" placeholder="Email*" /><button>Join BRIA</button> */}      
         </div>
-    <Footers/>
     </> );
 }
  
