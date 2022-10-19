@@ -27,7 +27,7 @@ const MissionPage = (props) => {
           <div className="mission-box2">
     <h1 style={{'color' : 'grey'}}>2</h1><h4 style={{'color' : 'white'}}>Preserve up to half the planet for wildlife.</h4>
     <h1 style={{'color' : 'grey'}}>4</h1><h4 style={{'color' : 'white'}}>Protect and reintroduce endangered species.</h4>
-           </div> 
+           </div>
     {/* black background */}
     </div>
     <div className="revoluton">

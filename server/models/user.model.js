@@ -3,7 +3,6 @@ const mongoose = require("mongoose");
 //Schema global settings
 mongoose.Schema.Types.String.set('trim', true);
 mongoose.Schema.Types.String.set('default', '');
-mongoose.Schema.Types.Date.set('default', Date.now);
 mongoose.Schema.Types.Number.set('default', 0);
 
 const UserSchema = new mongoose.Schema({
@@ -16,53 +15,47 @@ const UserSchema = new mongoose.Schema({
 	coverPictureUrl: String,
 	aboutBlurb: String,  //store user's 'about' info
 
-	properties: {
-		//user properties
-		isUserBriaAdmin: { type: Boolean, default: false }, //is this user a bria admin
-		isUserEmailVerified: { type: Boolean, default: true }, //email verfied?
-		//profile properties
-		isProfileActive: { type: Boolean, default: true }, //conditional display, no actual deletes! 
-		isProfilePrivate: { type: Boolean, default: false }, //true => app hideg identifying info
-		isProfileVisible: { type: Boolean, default: true } //profile (in)vibility status
-	},
+//PROPERTIES
 
-	location: {
-		city: String,
-		state: String,
-		country: String,
-		longitude: Number,
-		latitude: Number
-	},
+	//user properties
+	iBriaAdmin: { type: Boolean, default: false }, //is this user a bria admin
+	isEmailVerified: { type: Boolean, default: true }, //email verfied?
+	//profile properties
+	isActive: { type: Boolean, default: true }, //conditional display, no actual deletes! 
+	isPrivate: { type: Boolean, default: false }, //true => app hideg identifying info
+	isVisible: { type: Boolean, default: true }, //profile (in)vibility status
 
-	certifications: {
+//LOCATION
+
+	city: String,
+	state: String,
+	country: String,
+	longitude: Number,
+	latitude: Number,
+
+
+// CERTIFICATIONS
+
+	certificationsTotalCount: Number,
+	
+	BudburstId: String,
+	BudburstSpeciesCount: Number,
+	Budburst_II_date: Date,  //need 5 budburst observations
+	Budburst_III_date: Date,  //add 5 more budburst observations
+
+	eBirdId: String,
+	eBirdSpeciesCount: Number,
+	eBird_I_date: Date,    //record 5 observations
+
+	iNaturalistId: String,
+	iNaturalistspeciesCount: Number,
+	iNaturalist_I_date: Date,   // identify 10 or more WILD species on garden property
+	iNaturalist_II_date: Date, //1) make 50 observations to become iNaturalist "place"
+	//2) set up garden's KML file
 		
-		totalCount: Number,
-
-		Budburst: {
-			uId: String,
-			speciesCount: Number,
-			when_Budburst_I: Date,  //need 5 budburst observations
-			when_Budburst_II: Date  //add 5 more budburst observations
-		},
-
-		eBird: {
-			uId: String,
-			speciesCount: Number,
-			when_eBird_I: Date     //record 5 observations
-		},
-
-		iNaturalist: {
-			uId: String,
-			speciesCount: Number,
-			when_iNaturalist_I: Date,   // identify 10 or more WILD species on garden property
-			when_iNaturalist_II: Date //1) make 50 observations to become iNaturalist "place"
-			//2) set up garden's KML file
-		},
-	},
-
+	
 	gardensTable: [{
-		gardenId: mongoose.Types.ObjectId, //
-		isGardenCreator: Boolean
+		_id: mongoose.Types.ObjectId,
 	}],
 
 	//placeholder data for future capabilities
