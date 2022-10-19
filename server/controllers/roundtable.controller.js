@@ -3,7 +3,7 @@ const router = require("express").Router();
 const Roundtable = require("../models/roundTable.model");
 const bcrypt = require("bcrypt");
 const jwt = require ("jsonwebtoken");
-const validateSessions = require("../middleware/validate-sessions")
+const validateSessions = require("../middleware/validateSession")
 
 router.post("/createroundtable", async (req,res)=>{
     const roundtable = new Roundtable(
