@@ -3,12 +3,12 @@ import './missionPage.css'
 const MissionPage = (props) => {
     return ( <>
         <div className="mission-top">
-            <h3 style={{'color' : 'grey'}}>We are in the midst of the sixth largest mass extinction on earth.</h3>
+            <h3 style={{'color' : 'black'}}>We are in the midst of the sixth largest mass extinction on earth.</h3>
             {/* Image of NYC city scape */}
         </div>
     
     <div className="mission-middle">
-    <h4 style={{'color': 'olive'}}>Earth is on track to lose <b style={{'color' : 'orange'}}>half its species</b> in the next 80 years...and the vast majority of these species are <b style={{'color' : 'orange'}}>still unknown to science</b></h4>
+    <h4 style={{'color': 'white'}}>Earth is on track to lose <b style={{'color' : 'orange'}}>half its species</b> in the next 80 years...and the vast majority of these species are <b style={{'color' : 'orange'}}>still unknown to science</b></h4>
     {/* black background */}
     </div>
     {/* begin with translucent box with THE PROBLEM, VISION, MISSION, VALUES */}
@@ -54,7 +54,7 @@ const MissionPage = (props) => {
         <h6><b>Let's rescue the biosphere</b></h6>
         </div>
         <div className='mission-pic' id="logo-side" style={{'height' : '282px'}}></div>
-        <div className="values" style={{'color' : 'olive', 'height' : '318px'}}>
+        <div className="values" style={{'color' : 'black', 'height' : '318px'}}>
         {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>VALUES</h5>
 {/* text takes 2/3 page with white background / 1/3 page light grey with faint photo */}
         <h3>We believe that there is no greater legacy to leave our children than earth's biodiversity, intact.</h3>

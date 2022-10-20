@@ -16,7 +16,7 @@ const GardenBio = (props) => {
         <Button color="success" href="/Login">Start by registering here. it's free!</Button>{' '}
         </div>
     </div>
-    <div className="bottom" style={{'backgroundColor' : 'forestgreen'}}>
+    <div className="bottom" style={{'backgroundColor' : '#198754    '}}>
         <div id="upper-bottom">
     <h2 style={{'textAlign': 'center', 'color' : 'white'}}><b>What is a BRIA Botanical Garden?</b></h2>
         </div>
