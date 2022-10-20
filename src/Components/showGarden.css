@@ -10,7 +10,7 @@
 .garden-display-haze{
     min-height: 100vh;
     max-width: 100%;
-    background-color: rgb(0, 139, 139, 0.30);
+    background-color: rgba(185, 216, 216, 0.3);
 }
 
 .garden-header{
@@ -35,4 +35,18 @@
     display: flex;
     justify-content: space-evenly;
 
+}
+
+.garden-card{
+    border-radius: 15px;
+    border: 2px solid black; 
+    box-shadow: inset 1px 1px 15px black;
+}
+
+.garden-card:hover{
+    cursor: pointer;
+}
+.garden-card:active{
+    transform: translateY(3px);
+    box-shadow: inset 1px 1px 15px black;
 }

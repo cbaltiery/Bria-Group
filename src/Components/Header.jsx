@@ -35,6 +35,7 @@ const Header = (props) => {
   const clearToken = () => {
     localStorage.clear();
     setSessionToken("");
+    window.location.reload(false)
   };
 
   // Login Modal function
@@ -165,12 +166,12 @@ const Header = (props) => {
             BOTANICAL RESEARCH INSTITUTES OF AMERICA.
           </h5>
           <div className="logo">
-            <h1 style={{ marginTop: "1em" }}>bria</h1>
+            <h1 className="briaheadertext" style={{ marginTop: "1em" }}>bria</h1>
           </div>
         </div>
         <div className="right-header">
           <div className="navbar">
-            <Navbar bg="success" size="lg">
+            <Navbar bg="success" size="lg" style={{"borderRadius":"5rem"}}>
               <Container>
                 <Navbar.Brand href="/home" className="nav-button">bria</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

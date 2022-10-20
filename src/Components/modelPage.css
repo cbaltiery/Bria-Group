@@ -1,0 +1,65 @@
+.model-top{
+    background-image: url("../assets/Garden\ Photo\ -\ Model\ Page.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    min-height: 100vh;
+    max-width: 100%
+}
+.model-top-photo-haze{
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: rgba(209, 129, 231, 0.185);
+}
+
+/* Default for all "cards" */
+.model-card{
+    background-color: gray;
+    opacity: 0.8;
+    width: 500px;
+    border-radius: 2em;
+    padding: 2em;
+    box-shadow: inset 1px 1px 15px black ;
+}
+
+/* Interal Text card header settings */
+.card-title{
+    color:white;
+    background-color: #198754;
+    width: 100%;
+    text-align: center;
+}
+.card-list-text{
+    color: white;
+    list-style-type: none;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.bottom-card{
+    background-color: white;
+    margin-bottom: 45px;
+    height: 240px;
+}
+.bottom-title{
+    color: black;
+    background-color: white;
+    font-size: 175%;
+}
+.bottom-model-card{
+    background-color: white;
+}
+.mid-model-card{
+        background-color: rgb(190, 166, 192);
+        opacity: 0.8;
+        width: 100rem;
+        border-radius: 2em;
+        padding: 2em;
+        box-shadow: inset 1px 1px 15px black ;
+        margin-bottom: 3rem;
+}
+
+.footer-card{
+    background-color: rgb(190, 166, 192);
+    color: black
+}

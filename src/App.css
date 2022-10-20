@@ -61,14 +61,14 @@
 
 
 .box1{
-    background-image:linear-gradient(180deg, #cdd9eed5, #c7e4c8, #60d36bc2,#48d7568a, #bce8c0c2, #82a9f0d5);  
+    background-color: lightgray;
     width: 50%;
     height:35em;
     float: left;
     text-align: center;
 }
 .box2{
-    background-image:linear-gradient(180deg, #cdd9eed5, #c7e4c8, #60d36bc2,#48d7568a, #bce8c0c2, #82a9f0d5); 
+    background-color: lightgray; 
     width:50%;
     height:35em;
     float:right;
@@ -105,9 +105,10 @@
 }
 .operating-principles{
     text-align: center;
-    background-color: rgb(67, 67, 67);
+    background-color: darkgray;
     color :white;
-    padding: 100px
+    padding: 5rem;
+    font-size: 250%;
 }
 
 #alert-box{
@@ -132,9 +133,12 @@
 }
 
 #login-button{
-    background-color:green ;
+    background-color:#198754 ;
     border-style: none;
     color: black;
+}
+#login-button:hover{
+    scale: 1.1;
 }
 
 #reg-form{
@@ -143,5 +147,8 @@
 #reg-header{
     background-color: olive;
     margin-bottom: 0%;
+}
+.briaheadertext{
+    font-size: 300%;
 }
 

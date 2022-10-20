@@ -11,6 +11,7 @@ const RegisterGarden = (props) => {
     const [gardenNickname, setGardenNickname] = useState("")
     const [city, setCity] = useState("")
     const [state, setState] = useState("")
+    const [image, setImage] = useState("")
     const [roundTable,setRoundTable] = useState("")
     const [squareFootage,setSquareFootage] = useState("")
 
@@ -46,6 +47,27 @@ const RegisterGarden = (props) => {
       error.error(error)
       
     }
+  }
+
+  async function uploadImage(e){
+    debugger
+    const files = e.target.files;
+    const data = new FormData();
+    data.append("file", files[0]);
+    data.append("upload_preset","Briaupload");
+    const res = await fetch(
+      "http://api.cloudinary.com/v1_1/de76onwdh/image/upload",
+    {
+      method:"POST",
+      body: data
+    }
+    )
+    
+    const File = await res.json()
+
+    console.log(File.secure_url)
+    setImage(File.secure_url)
+    
   }
     return (
     
@@ -157,7 +179,7 @@ An area to upload personal photos of the space.
 
         <FormGroup>
           <Label for="garden-photo">Upload Garden Photo</Label>
-          <Input style={{'width' : '50%'}} type="file" id="garden-photo" />
+          <Input style={{'width' : '50%'}} type="file" id="garden-photo" onChange={uploadImage} />
           <FormText color="black">
             <b>Upload a picture of your greenspace.</b>
           </FormText>
@@ -165,6 +187,8 @@ An area to upload personal photos of the space.
 
         <Button color="secondary" onClick={handleSubmit}>Submit</Button>
     </Form>
+
+    <img src={image}/>
     </div>
   
     </> 

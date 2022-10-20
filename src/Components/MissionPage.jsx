@@ -32,7 +32,7 @@ const MissionPage = (props) => {
     {/* forest green background */}
     </div>
     {/* nature lady photo scrolls left while you scroll down */}
-    <div className="vision" style={{'color' : 'olive', 'height' : '282px'}}>
+    <div className="vision-box">
         <div id="text-side">
     {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>VISION</h5> 
     {/* text takes 2/3 page with white background / 1/3 page light grey with faint photo */}
@@ -42,7 +42,7 @@ const MissionPage = (props) => {
     <p style={{'marginTop' : '20px'}}>The Botanical Research Institutes of America will serve in this effort by bringing our emerging community the tools, knowledge, and inspiration they need to help save life on earth.</p>
     
     </div>
-    <div id="logo-side" style={{'color' : 'white', 'textAlign' : 'center', 'height' : '282px'}}>pic</div>
+    <div className='vision-pic' id="logo-side" style={{ 'height' : '282px'}}></div>
     </div>
     <div className="missions" style={{'color' : 'white', 'height' : '282px'}}>
 {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>MISSION</h5>
@@ -53,7 +53,7 @@ const MissionPage = (props) => {
         <p style={{'marginTop' : '20px'}}>We’re calling on students…and students of life. Gardeners with green thumbs, and anyone who’s ever felt guilty for forgetting to water the plant on their windowsill. Influencers and introverts. Do you know the seven types of trees in minecraft? You. We’re calling on you</p>
         <h6><b>Let's rescue the biosphere</b></h6>
         </div>
-        <div id="logo-side" style={{'color' : 'green', 'textAlign' : 'center', 'backgroundColor' : 'white', 'height' : '282px'}}>pic</div>
+        <div className='mission-pic' id="logo-side" style={{'height' : '282px'}}></div>
         <div className="values" style={{'color' : 'olive', 'height' : '318px'}}>
         {/* small logo */} <h5 style={{'marginLeft' : '20px'}}>VALUES</h5>
 {/* text takes 2/3 page with white background / 1/3 page light grey with faint photo */}
@@ -64,7 +64,7 @@ const MissionPage = (props) => {
 
         <p style={{'marginTop' : '20px'}}>We believe that the audacious goal of saving life on earth must be matched by audacious innovation. <b>Experimentation and creativity are our lifeblood.</b></p>
         </div>
-        <div id="logo-side" style={{'height' : '318px', 'textAlign' : 'center', 'color' : 'white'}}>pic</div>
+        <div className='value-pic' id="logo-side" style={{'height' : '318px'}}></div>
         {/* background photo of scientist looking at plants */}
         {/* the following in small black box on right side of screen */}
         <div className="join">
