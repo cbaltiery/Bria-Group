@@ -22,7 +22,7 @@ const GardenBio = (props) => {
         </div>
         <div id="middle-bottom">
         <div class="embed-responsive embed-responsive-16by9" style={{'textAlign' : 'center', 'marginTop' : '2em'}}>
-  <iframe width="450" height="315" class="embed-responsive-item" src="https://www.youtube.com/embed/CO7oi6TM1QQ" allowfullscreen></iframe>
+  <iframe width="900" height="450" class="embed-responsive-item" src="https://www.youtube.com/embed/CO7oi6TM1QQ" allowfullscreen></iframe>
 </div>
         </div>
         <div id="bottom-bottom">

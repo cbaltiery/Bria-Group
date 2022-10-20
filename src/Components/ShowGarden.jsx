@@ -24,7 +24,7 @@ return (
     <>
     <div className="garden-display-background">
     <div className="garden-display-haze">
-    <h1 className="garden-header">Naturalist Gardens</h1>
+    {/* <h1 className="garden-header">Naturalist Gardens</h1> */}
     <Container id="garden-display-container" fluid>
         <Row id="garden-display-row">
             {props.displayGarden?.garden?.slice(0,6).map((data,index)=> ( 
@@ -33,12 +33,14 @@ return (
                 color="success"
                 style={{
                     width: '25rem'
-                    
                 }}
+                className="garden-card"
                 >
                 <img
                     alt="Sample"
                     src="https://picsum.photos/300/200"
+                    style={{"padding":"1em"}}
+                    
                 />
                 <CardBody>
                     <CardTitle tag="h5">
@@ -55,9 +57,9 @@ return (
                     <ShowGardenCard location = {data.location}/>
                     </CardText>
                        
-                    <Button>
+                    {/* <Button>
                     Visit Garden
-                    </Button>
+                    </Button> */}
                 </CardBody>
                 </Card>
             </Col>

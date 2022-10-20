@@ -1,11 +1,36 @@
 import { FormGroup, Form, Input, Label, FormText, Button } from "reactstrap";
+import { useState } from "react";
 
 const RegisterRoundtable = (props) => {
     const states = require("../assets/states.json")
+    const [Image, setImage] = useState("")
+
+
     
     async function handleSubmit(e){
         e.preventDefault();
         console.log("button Clicked")
+    }
+
+    async function uploadImage(e){
+      debugger
+      const files = e.target.files;
+      const data = new FormData();
+      data.append("file", files[0]);
+      data.append("upload_preset","Images");
+      const res = await fetch(
+        "http://api.cloudinary.com/v1_1/de76onwdh/image/Briaupload",
+      {
+        method:"POST",
+        body: data
+      }
+      )
+      
+      const File = await res.json()
+
+      console.log(File.secure_url)
+      setImage(File.secure_url)
+      
     }
 
     return (
@@ -61,7 +86,7 @@ const RegisterRoundtable = (props) => {
 
         <FormGroup>
           <Label for="roundtable-photo">Upload Garden Photos for Roundtable</Label>
-          <Input type="file" id="roundtable-photo" />
+          <Input type="file" id="roundtable-photo" onChange={uploadImage}/>
           <FormText color="muted">
             Upload a picture of your greenspace.
           </FormText>
@@ -70,6 +95,7 @@ const RegisterRoundtable = (props) => {
           handleSubmit()
         }}>Submit</Button>
     </Form>
+    <div>{Image}</div>
     
     </> 
     );

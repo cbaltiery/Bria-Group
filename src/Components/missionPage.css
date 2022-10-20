@@ -12,7 +12,7 @@
 .mission{
     flex: 80%;
     padding : 300px;
-    background-color: rgb(122, 156, 103);
+    background-color: #198754;
     text-align: right;
     
 }
@@ -34,7 +34,7 @@
 .revoluton{
     flex: 80%;
     padding : 100px;
-    background-color: green;
+    background-color: #198754;
     text-align: center;
 }
 #text-side{
@@ -52,16 +52,35 @@
 .missions{
     width:70%;
     height: 15.6em;
-    background-color: forestgreen;
+    background-color: #198754;
     float: left;
+    box-shadow: inset 1px 1px 15px black ;
 }
 .values{
     width: 70%;
     background-color: rgba(248, 245, 227, 0.973);
     float: left;
+    /* box-shadow: inset 1px 1px 15px black ; */
 }
 .join{
     flex: 80%;
     padding : 300px;
     background-color: rgb(122, 156, 103); 
+}
+.vision-box{
+    box-shadow: inset 1px 1px 15px black;
+    color: olive;
+    height: 282px;
+}
+.vision-pic{
+    background-image: url(../assets/mission-cityscape.jpg);
+    background-size: cover; 
+}
+.mission-pic{
+    background-image: url(../assets/mission-mission\ photo.jpg);
+    background-size: cover; 
+}
+.value-pic{
+    background-image: url(../assets/mission-biodiversity-garden.jpg);
+    background-size: cover;
 }
