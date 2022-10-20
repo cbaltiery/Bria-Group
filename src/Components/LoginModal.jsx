@@ -28,8 +28,8 @@ function LoginModal(props) {
     e.preventDefault();
     console.log("login clicked");
     // Navigate can be used to automatically return to home page after successful login.
-    // refreshPage()
-    // navigate("/Home")
+    refreshPage()
+    navigate("/Home")
 
     let bodyObject = JSON.stringify({
       email: email,
@@ -94,7 +94,6 @@ function LoginModal(props) {
             <button onClick={navigateToRegisterUser}>Sign Up!</button>
           </Form>
         </Modal.Body>
-        
       </Modal>
     </>
   );

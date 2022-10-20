@@ -12,7 +12,7 @@ import {
 } from "react-bootstrap";
 import { Endpoints } from "./endPoints";
 import LoginModal from "./LoginModal.jsx";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Header = (props) => {
   //  establish whether a token is accessed or not
@@ -31,12 +31,26 @@ const Header = (props) => {
     }
   }, []);
 
+  function refreshPage() {
+    // Refreshes the page after logout 
+    setTimeout(()=>{
+        window.location.reload(false);
+    }, 500);
+  }
+
   // Clears token when user logs out
+  const navigate = useNavigate()
+
   const clearToken = () => {
     localStorage.clear();
     setSessionToken("");
-    window.location.reload(false)
   };
+
+  function logOut(){
+    clearToken();
+    refreshPage();
+    navigate("/Home")
+  }
 
   // Login Modal function
   function handleClick() {
@@ -57,11 +71,8 @@ const Header = (props) => {
           Register a garden
         </NavDropdown.Item>
         <NavDropdown.Divider />
-        <NavDropdown.Item href="/RegisterRoundTable">
-          Register a roundtable
-        </NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item onClick={clearToken} href="#Log-Out">
+        <NavDropdown.Item 
+        onClick={logOut} href="#Log-Out">
           LOGOUT
         </NavDropdown.Item>
       </NavDropdown>
@@ -171,7 +182,7 @@ const Header = (props) => {
         </div>
         <div className="right-header">
           <div className="navbar">
-            <Navbar bg="success" size="lg" style={{"borderRadius":"5rem"}}>
+            <Navbar bg="success" size="lg" style={{"borderRadius":"0.5rem"}}>
               <Container>
                 <Navbar.Brand href="/home" className="nav-button">bria</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
